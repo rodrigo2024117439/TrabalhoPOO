@@ -1,20 +1,40 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.30)
 project(Trabalho_Pratico)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Trabalho_Pratico src/main.cpp
-        src/comando.cpp
-        src/comando.h
-        src/interface.cpp
-        src/interface.h
-        src/jardim.cpp
-        src/jardim.h
-        src/solo.cpp
-        src/solo.h
-        src/planta.cpp
-        src/planta.h
-        src/jardineiro.cpp
-        src/jardineiro.h
-        src/ferramenta.cpp
-        src/ferramenta.h)
+add_executable(Trabalho_Pratico
+        src/main.cpp
+
+        #BABE LÊ LÁ EM BAIXO
+
+        #Classes Principais
+        src/Comando.cpp
+        src/Comando.h
+        src/Interface.cpp
+        src/Interface.h
+        src/Jardim.cpp
+        src/Jardim.h
+        src/Solo.cpp
+        src/Solo.h
+        src/Jardineiro.cpp
+        src/Jardineiro.h
+        src/Settings.h
+
+        #Classes Base
+        src/Planta.cpp
+        src/Planta.h
+        src/Ferramenta.cpp
+        src/Ferramenta.h
+
+        #Classes Derivadas (Plantas)
+        src/Cacto.cpp
+        src/Cacto.h
+        # Cravo adiciona aqui os .cpp e .h da roseira, ervadaninha, plantaexotica aka temos de escolher uma merda qlqr
+
+        #Classes Derivadas (Ferramentas)
+        src/Regador.cpp
+        src/Regador.h
+        #adiciona aqui os .cpp e .h do adubo, tesoura, ferramentaz aka temos de escolher uma merda qlqr
+        #FALTA MUDAR O INTERFACE.CPP!!!!!!!!!!
+)

@@ -3,3 +3,5 @@
 //
 
 #include "Ferramenta.h"
+
+int Ferramenta::contadorSeries = 0;
