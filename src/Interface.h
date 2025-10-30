@@ -5,9 +5,14 @@
 #ifndef TRABALHO_PRATICO_INTERFACE_H
 #define TRABALHO_PRATICO_INTERFACE_H
 
+#include "Jardim.h"
 
 class Interface {
+    Jardim* meuJardim;
+
 public:
+    Interface();  // Construtor
+    ~Interface(); // Destrutor
     void iniciar();
 };
 

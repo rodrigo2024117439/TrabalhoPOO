@@ -11,10 +11,14 @@ class Comando {
     std::string texto;
     std::vector<std::string> partes;
 
-    public:
+public:
     explicit Comando(const std::string &linha);
-    void validar();
 
+    std::string getNome() const;
+
+    std::vector<std::string> getArgs() const;
+
+    int getNumArgs() const;
 };
 
 
