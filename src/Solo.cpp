@@ -3,8 +3,8 @@
 //
 
 #include "Solo.h"
-#include "Planta.h"
-#include "Ferramenta.h"
+#include "Plantas/Planta.h"
+#include "Ferramentas/Ferramenta.h"
 #include "Settings.h"
 #include <cstdlib>
 #include <ctime>

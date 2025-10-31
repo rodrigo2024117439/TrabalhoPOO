@@ -22,19 +22,19 @@ add_executable(Trabalho_Pratico
         src/Settings.h
 
         #Classes Base
-        src/Planta.cpp
-        src/Planta.h
-        src/Ferramenta.cpp
-        src/Ferramenta.h
+        src/Plantas/Planta.cpp
+        src/Plantas/Planta.h
+        src/Ferramentas/Ferramenta.cpp
+        src/Ferramentas/Ferramenta.h
 
         #Classes Derivadas (Plantas)
-        src/Cacto.cpp
-        src/Cacto.h
+        src/Plantas/Cacto.cpp
+        src/Plantas/Cacto.h
         # Cravo adiciona aqui os .cpp e .h da roseira, ervadaninha, plantaexotica aka temos de escolher uma merda qlqr
 
         #Classes Derivadas (Ferramentas)
-        src/Regador.cpp
-        src/Regador.h
+        src/Ferramentas/Regador.cpp
+        src/Ferramentas/Regador.h
         #adiciona aqui os .cpp e .h do adubo, tesoura, ferramentaz aka temos de escolher uma merda qlqr
         #FALTA MUDAR O INTERFACE.CPP!!!!!!!!!!
 )

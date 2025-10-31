@@ -6,7 +6,7 @@
 #define TRABALHO_PRATICO_JARDINEIRO_H
 
 #include <vector>
-#include "Ferramenta.h"
+#include "Ferramentas/Ferramenta.h"
 
 class Jardineiro {
     int lin, col;
