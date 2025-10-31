@@ -5,7 +5,7 @@
 #define TRABALHO_PRATICO_REGADOR_H
 
 #include "Ferramenta.h"
-#include "Settings.h"
+#include "../Settings.h"
 
 class Regador : public Ferramenta {
     int aguaRestante;

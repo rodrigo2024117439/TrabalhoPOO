@@ -5,7 +5,7 @@
 #define TRABALHO_PRATICO_CACTO_H
 
 #include "Planta.h"
-#include "Settings.h"
+#include "../Settings.h"
 
 class Cacto : public Planta {
     int instantesComMuitaAgua;

@@ -12,9 +12,8 @@
 Interface::Interface() : meuJardim(nullptr) {
 }
 
-// Destrutor: Se o jardim foi criado, temos de o apagar
 Interface::~Interface() {
-    delete meuJardim; // O delete ignora se for nullptr
+    delete meuJardim;
 }
 
 void Interface::iniciar() {
@@ -70,7 +69,7 @@ void Interface::iniciar() {
             std::cout << "[ERRO] Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
         }
 
-        // Se chegarmos aqui, o jardim JÁ EXISTE e podemos processar outros comandos
+
         else if (nomeCmd == "planta") {
             if (cmd.getNumArgs() != 2)
                  std::cout << "[ERRO] Uso: planta <pos> <tipo>\n";
@@ -86,11 +85,36 @@ void Interface::iniciar() {
         else if (nomeCmd == "avanca") {
             std::string n_instantes = (cmd.getNumArgs() == 1) ? cmd.getArgs()[0] : "1";
             std::cout << "Avancar " << n_instantes << " instantes (nao implementado)\n";
-            // No futuro, depois de avançar, deve mostrar o jardim atualizado:
+
              meuJardim->printJardim();
         }
 
-        // ... (colocar aqui os 'else if' para os outros comandos: 'lplantas', 'sai', etc.) ...
+        else if (nomeCmd == "larea") {
+            if (cmd.getNumArgs() != 0) {
+                std::cout<< "ERRO - Este comando nao aceita argumentos \n";
+            } else {
+                std::cout<<"A listar conteudo existentes: \n";
+            }
+        }
+
+        else if (nomeCmd == "lplantas") {
+            if (cmd.getNumArgs() != 0) {
+                std::cout<< "ERRO - Este comando nao aceita argumentos \n";
+            } else {
+                std::cout<<"A listar plantas existentes: \n";
+            }
+        }
+
+        else if (nomeCmd == "lferr"){
+            if (cmd.getNumArgs() != 0) {
+                std::cout <<" ERRO- Este comando nao aceita argumentos \n";
+            }else {
+                std::cout<<"A listar ferramentas existentes: \n";
+            }
+
+        }
+
+
 
         // Se o comando não for nenhum dos anteriores
         else if (!nomeCmd.empty()) { // Ignora linhas em branco
