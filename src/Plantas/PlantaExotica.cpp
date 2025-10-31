@@ -3,3 +3,7 @@
 //
 
 #include "PlantaExotica.h"
+
+#include "Planta.h"
+
+//ainda por decidir

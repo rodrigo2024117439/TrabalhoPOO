@@ -8,10 +8,14 @@
 #include "Planta.h"
 
 class Roseira : public Planta {
-
+    int instSemAgua;
+    int instSemNutrientes;
+    int instComNutrientesAMais;
 
 public:
     Roseira();
+
+    void avancaInstante(Solo* solo) override;
 
 
 };
