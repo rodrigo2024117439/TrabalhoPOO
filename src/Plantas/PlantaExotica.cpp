@@ -7,7 +7,7 @@
 #include "Planta.h"
 
 
-PlantaExotica::PlantaExotica():Planta('Z',"PlantaExotica",0,0,0) {
+PlantaExotica::PlantaExotica():Planta('x',"PlantaExotica",0,0,0) {
 
 }
 //ainda por decidir

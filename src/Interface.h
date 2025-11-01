@@ -10,9 +10,6 @@
 class Interface {
     Jardim* meuJardim;
 
-    bool parsePos(const std::string& posStr, int& lin, int& col)const;
-    static bool parseInt(const std::string& s, int& valor);
-
 public:
     Interface();  // Construtor
     ~Interface(); // Destrutor
