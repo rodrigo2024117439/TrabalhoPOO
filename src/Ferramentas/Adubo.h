@@ -9,7 +9,7 @@
 
 class Adubo: Ferramenta {
     int usosResteantes;
-    
+
     public:
     Adubo();
 };

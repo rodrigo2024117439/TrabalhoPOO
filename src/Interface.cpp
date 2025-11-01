@@ -18,8 +18,8 @@ Interface::~Interface() {
 
 void Interface::iniciar() {
     std::string linha;
-    std::cout << "=== Simulador de Jardim ===\n";
-    std::cout << "Primeiro comando deve ser: 'jardim <linhas> <colunas>'\n";
+    std::cout << "----> Simulador de Jardim <----\n";
+    std::cout << "Primeiro comando a ser utilizado: 'jardim <linhas> <colunas>'\n";
     std::cout << "Escreva 'fim' para sair.\n";
 
     while (true) {
@@ -37,9 +37,9 @@ void Interface::iniciar() {
         // --- LÓGICA DO COMANDO "JARDIM" ---
         else if (nomeCmd == "jardim") {
             if (meuJardim != nullptr) {
-                std::cout << "[ERRO] O jardim ja foi criado! Nao pode ser recriado.\n";
+                std::cout << "ERRO- O jardim ja foi criado! Nao pode ser recriado.\n";
             } else if (cmd.getNumArgs() != 2) {
-                std::cout << "[ERRO] Uso: jardim <linhas> <colunas>\n";
+                std::cout << "ERRO - Uso: jardim <linhas> <colunas>\n";
             } else {
                 try {
                     std::vector<std::string> args = cmd.getArgs();
@@ -72,23 +72,25 @@ void Interface::iniciar() {
 
         else if (nomeCmd == "planta") {
             if (cmd.getNumArgs() != 2)
-                 std::cout << "[ERRO] Uso: planta <pos> <tipo>\n";
+                 std::cout << "ERRO- Uso: planta <pos> <tipo>\n";
             else
                 std::cout << "Plantar (nao implementado) " << cmd.getArgs()[1] << " em " << cmd.getArgs()[0] << "\n";
         }
         else if (nomeCmd == "colhe") {
              if (cmd.getNumArgs() != 1)
-                 std::cout << "[ERRO] Uso: colhe <pos>\n";
+                 std::cout << "ERRO- Uso: colhe <pos>\n";
             else
-                std::cout << "Colher (nao implementado) em " << cmd.getArgs()[0] << "\n";
+                std::cout << "Colher em " << cmd.getArgs()[0] << "\n";
         }
         else if (nomeCmd == "avanca") {
             std::string n_instantes = (cmd.getNumArgs() == 1) ? cmd.getArgs()[0] : "1";
-            std::cout << "Avancar " << n_instantes << " instantes (nao implementado)\n";
+            std::cout << "Avancar " << n_instantes << " instantes \n";
 
              meuJardim->printJardim();
         }
 
+
+        //-------------------listagens----------------------
         else if (nomeCmd == "larea") {
             if (cmd.getNumArgs() != 0) {
                 std::cout<< "ERRO - Este comando nao aceita argumentos \n";
@@ -113,6 +115,95 @@ void Interface::iniciar() {
             }
 
         }
+
+        else if (nomeCmd == "lplanta") {
+            if (cmd.getNumArgs() != 1) {
+                std::cout << "ERRO- Uso: lplanta <posicao> (ex: lplanta ej)\n";
+            }else {
+                std::cout<< "A listar detalhes da planta na posicao " << cmd.getArgs()[0] << ": \n";
+            }
+        }
+
+        else if (nomeCmd == "lsolo") {
+            if (cmd.getNumArgs() <1 || cmd.getNumArgs() > 2) {
+                std::cout<<"ERRO - ";
+            }else {
+                std::cout<<"A listar detalhes do solo";
+            }
+        }
+        //------------------------------------------------------------------------
+        //-----------------Ferrametas---------------------------
+
+        else if (nomeCmd == "larga") {
+            if (cmd.getNumArgs() != 0) {
+                std::cout<<"ERRO- Este comando nao aceita argumentos \n";
+            }else {
+                std::cout<<"Ferramenta guardada";
+            }
+        }
+        else if (nomeCmd == "pega") {
+            if (cmd.getNumArgs() != 1) {
+                std::cout << "ERRO- Uso: pega <nº de serie> \n";
+            }else {
+                std::cout<<"Ferramenta equipada";
+            }
+        }
+
+        else if (nomeCmd == "compra") {
+            if (cmd.getNumArgs() != 1) {
+                std::cout << "ERRO- Uso: compra <tipo> \n";
+            }else {
+                std::cout<<"Ferramenta comprada";
+            }
+        }
+        //-----------------------------------------------
+        //------------------------Jardineiro--------------------
+        else if (nomeCmd == "e" || nomeCmd == "d" || nomeCmd == "c" || nomeCmd == "b") {
+            if (cmd.getNumArgs() != 0) {
+                std::cout<<"ERRO- Este comando nao aceita argumentos \n";
+            }
+        }
+
+        else if (nomeCmd == "entra") {
+            if (cmd.getNumArgs() != 1) {
+                std::cout << "ERRO- Uso: entra <posicao>\n";
+            }
+            else {
+                std::cout<<"Jardineiro entrou em "<< cmd.getArgs()[0] << "\n";
+            }
+        }
+        else if (nomeCmd == "sai") {
+            if (cmd.getNumArgs() != 0) {
+                std::cout << "ERRO- este comando nao aceira argumento\n";
+            }else {
+                std::cout<<"o hardineiro saio do jardim";
+            }
+        }
+        //----------------------------------------------------
+        //--------------comandos gerais-----------------------
+
+        else if (nomeCmd == "grava" || nomeCmd == "recupera" || nomeCmd == "apaga" ) {
+            if (cmd.getNumArgs() != 1) {
+                std::cout << "ERRO- unico argomento a usar é <nome> \n";
+            }
+            else if (nomeCmd == "grava") {
+                std::cout<<"Simulacao guardada com o nome "<<cmd.getArgs()[0]<<" \n";
+            }else if (nomeCmd == "recupera") {
+                std::cout<<"simulacao com o nome "<<cmd.getArgs()[0] << " recuperada \n";
+            }else if (nomeCmd == "apaga") {
+                std::cout<<"simulacao com o nome "<<cmd.getArgs()[0] << " apagada \n";
+            }
+        }
+
+        else if (nomeCmd == "executa") {
+            if (cmd.getNumArgs() != 1) {
+                std::cout << "ERRO- Uso: executa <nome-do-ficheiro>\n";
+            }else {
+                std::cout<<"A abrir ficheiro "<<cmd.getArgs()[0];
+            }
+        }
+
+
 
 
 
