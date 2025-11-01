@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(Trabalho_Pratico
         src/main.cpp
 
-        #BABE LÊ LÁ EM BAIXO
 
         #Classes Principais
         src/Comando.cpp
@@ -36,7 +35,6 @@ add_executable(Trabalho_Pratico
         src/Plantas/PlantaExotica.h
         src/Plantas/ErvaDaninha.cpp
         src/Plantas/ErvaDaninha.h
-        # Cravo adiciona aqui os .cpp e .h da roseira, ervadaninha, plantaexotica aka temos de escolher uma merda qlqr
 
         #Classes Derivadas (Ferramentas)
         src/Ferramentas/Regador.cpp
@@ -47,6 +45,4 @@ add_executable(Trabalho_Pratico
         src/Ferramentas/Tesoura.h
         src/Ferramentas/FerramentaZ.cpp
         src/Ferramentas/FerramentaZ.h
-        #adiciona aqui os .cpp e .h do adubo, tesoura, ferramentaz aka temos de escolher uma merda qlqr
-        #FALTA MUDAR O INTERFACE.CPP!!!!!!!!!!
 )

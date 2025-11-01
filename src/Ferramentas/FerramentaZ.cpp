@@ -6,5 +6,5 @@
 
 
 FerramentaZ::FerramentaZ():Ferramenta('z', "Ferramenta") {
-    
+
 }

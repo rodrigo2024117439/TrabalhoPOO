@@ -7,5 +7,7 @@
 #include "Planta.h"
 
 
-class PlantaExotica : public Planta {};
+PlantaExotica::PlantaExotica():Planta('Z',"PlantaExotica",0,0,0) {
+
+}
 //ainda por decidir

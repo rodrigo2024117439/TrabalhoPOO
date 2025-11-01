@@ -4,11 +4,9 @@
 
 #include "Interface.h"
 #include <iostream>
-#include <string> // Precisamos de std::string
+#include <string>
 #include "Comando.h"
-// Jardim.h já é incluído por Interface.h
 
-// Construtor: Começa com o jardim a não existir (nullptr)
 Interface::Interface() : meuJardim(nullptr) {
 }
 
@@ -26,8 +24,8 @@ void Interface::iniciar() {
         std::cout << "> ";
         std::getline(std::cin, linha);
 
-        Comando cmd(linha); // Cria o comando
-        std::string nomeCmd = cmd.getNome(); // Pergunta o nome
+        Comando cmd(linha);
+        std::string nomeCmd = cmd.getNome();
 
         if (nomeCmd == "fim") {
             std::cout << "Programa terminado.\n";
@@ -43,30 +41,26 @@ void Interface::iniciar() {
             } else {
                 try {
                     std::vector<std::string> args = cmd.getArgs();
-                    int lin = std::stoi(args[0]); // Converte arg 1 para int
-                    int col = std::stoi(args[1]); // Converte arg 2 para int
+                    int lin = std::stoi(args[0]);
+                    int col = std::stoi(args[1]);
 
-                    // Validação das regras do enunciado
                     if (lin < 1 || lin > 26 || col < 1 || col > 26) {
                         std::cout << "[ERRO] O jardim deve ter no maximo 26x26 e no minimo 1x1.\n";
                     } else {
-                        // SUCESSO!
                         meuJardim = new Jardim(lin, col); // <--- CRIA O JARDIM
                         std::cout << "Jardim de " << lin << "x" << col << " criado.\n";
                         meuJardim->printJardim(); // <--- MOSTRA O JARDIM
                     }
                 } catch (const std::invalid_argument& e) {
-                    // apanha o erro se std::stoi falhar (ex: "jardim a b")
                     std::cout << "[ERRO] Linhas e colunas devem ser numeros inteiros.\n";
                 }
             }
         }
 
-        // --- RESTO DOS COMANDOS ---
 
         // Se o comando não for "jardim" e o jardim ainda não existir...
         else if (meuJardim == nullptr) {
-            std::cout << "[ERRO] Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
+            std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
         }
 
 
