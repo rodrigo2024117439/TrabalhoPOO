@@ -16,7 +16,6 @@ Comando::Comando(const std::string &linha) : texto(linha) {
         partes.push_back(p);
 }
 
-// Implementação das novas funções "get"
 std::string Comando::getNome() const {
     if (partes.empty()) return "";
     return partes[0];

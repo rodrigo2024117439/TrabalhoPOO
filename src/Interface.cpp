@@ -45,14 +45,14 @@ void Interface::iniciar() {
                     int col = std::stoi(args[1]);
 
                     if (lin < 1 || lin > 26 || col < 1 || col > 26) {
-                        std::cout << "[ERRO] O jardim deve ter no maximo 26x26 e no minimo 1x1.\n";
+                        std::cout << "ERRO- O jardim deve ter no maximo 26x26 e no minimo 1x1.\n";
                     } else {
                         meuJardim = new Jardim(lin, col); // <--- CRIA O JARDIM
                         std::cout << "Jardim de " << lin << "x" << col << " criado.\n";
                         meuJardim->printJardim(); // <--- MOSTRA O JARDIM
                     }
                 } catch (const std::invalid_argument& e) {
-                    std::cout << "[ERRO] Linhas e colunas devem ser numeros inteiros.\n";
+                    std::cout << "ERRO- Linhas e colunas devem ser numeros inteiros.\n";
                 }
             }
         }
