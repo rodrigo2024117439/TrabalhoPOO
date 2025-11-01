@@ -6,4 +6,6 @@
 
 #include "Planta.h"
 
+
+class PlantaExotica : public Planta {};
 //ainda por decidir

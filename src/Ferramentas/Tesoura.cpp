@@ -3,3 +3,12 @@
 //
 
 #include "Tesoura.h"
+
+Tesoura::Tesoura():Ferramenta('t',"Tesoura") {
+
+}
+
+void Tesoura::avancaInstante(Jardineiro *jardineiro) {
+
+}
+

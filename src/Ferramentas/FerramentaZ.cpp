@@ -3,3 +3,8 @@
 //
 
 #include "FerramentaZ.h"
+
+
+FerramentaZ::FerramentaZ():Ferramenta('z', "Ferramenta") {
+    
+}

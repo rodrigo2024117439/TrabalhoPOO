@@ -7,7 +7,7 @@
 
 #include "Ferramenta.h"
 
-class Adubo: Ferramenta {
+class Adubo: public Ferramenta {
     int usosResteantes;
 
     public:
