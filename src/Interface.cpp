@@ -68,7 +68,7 @@ void Interface::iniciar() {
             if (cmd.getNumArgs() != 2)
                  std::cout << "ERRO- Uso: planta <pos> <tipo>\n";
             else
-                std::cout << "Plantar (nao implementado) " << cmd.getArgs()[1] << " em " << cmd.getArgs()[0] << "\n";
+                std::cout << "Plantar " << cmd.getArgs()[1] << " em " << cmd.getArgs()[0] << "\n";
         }
         else if (nomeCmd == "colhe") {
              if (cmd.getNumArgs() != 1)
