@@ -22,5 +22,7 @@ public:
     int getLinhas() const{ return linhas; }
     int getColunas() const{ return colunas; }
     Jardineiro* getJardineiro() const { return meuJardineiro; }
+
+    Solo *getSolo(int lin,int col) const;
 };
 #endif //TRABALHO_PRATICO_JARDIM_H

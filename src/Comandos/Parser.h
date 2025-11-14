@@ -7,12 +7,12 @@
 #include <string>
 #include <vector>
 
-class Comando {
+class Parser {
     std::string texto;
     std::vector<std::string> partes;
 
 public:
-    explicit Comando(const std::string &linha);
+    explicit Parser(const std::string &linha);
 
     std::string getNome() const;
 

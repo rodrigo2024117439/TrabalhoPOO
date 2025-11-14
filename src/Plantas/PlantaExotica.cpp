@@ -11,6 +11,7 @@ PlantaExotica::PlantaExotica():Planta('x',"PlantaExotica",0,0,0) {
 
 }
 void PlantaExotica::avancaInstante(Solo* solo) {
+
 }
 
 //ainda por decidir

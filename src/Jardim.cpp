@@ -52,5 +52,12 @@ void Jardim::printJardim() const {
     }
 }
 
+Solo *Jardim::getSolo(int lin, int col) const {
+    if (lin >= 0 && lin < linhas && col >= 0 && col < colunas) {
+        return &area_solo[lin][col];
+    }
+    return nullptr;
+}
+
 
 

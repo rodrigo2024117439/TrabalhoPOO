@@ -8,8 +8,8 @@ add_executable(Trabalho_Pratico
 
 
         #Classes Principais
-        src/Comando.cpp
-        src/Comando.h
+        src/Comandos/Parser.cpp
+        src/Comandos/Parser.h
         src/Interface.cpp
         src/Interface.h
         src/Jardim.cpp
@@ -45,4 +45,22 @@ add_executable(Trabalho_Pratico
         src/Ferramentas/Tesoura.h
         src/Ferramentas/FerramentaZ.cpp
         src/Ferramentas/FerramentaZ.h
+        src/Comandos/Comando.cpp
+        src/Comandos/Comando.h
+        src/Comandos/comandoEntra.cpp
+        src/Comandos/comandoEntra.h
+        src/Comandos/ComandoSai.cpp
+        src/Comandos/ComandoSai.h
+        src/Comandos/ComandoLPlantas.cpp
+        src/Comandos/ComandoLPlantas.h
+        src/Comandos/ComandoColhe.cpp
+        src/Comandos/ComandoColhe.h
+        src/Comandos/ComandoCima.cpp
+        src/Comandos/ComandoCima.h
+        src/Comandos/ComandoBaixo.cpp
+        src/Comandos/ComandoBaixo.h
+        src/Comandos/ComandoEsq.cpp
+        src/Comandos/ComandoEsq.h
+        src/Comandos/ComandoDir.cpp
+        src/Comandos/ComandoDir.h
 )
