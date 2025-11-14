@@ -2,8 +2,8 @@
 // Created by Rodrigo on 23/10/2025.
 //
 
-#ifndef TRABALHO_PRATICO_COMANDO_H
-#define TRABALHO_PRATICO_COMANDO_H
+#ifndef TRABALHO_PRATICO_PARSER_H
+#define TRABALHO_PRATICO_PARSER_H
 #include <string>
 #include <vector>
 
@@ -22,4 +22,4 @@ public:
 };
 
 
-#endif //TRABALHO_PRATICO_COMANDO_H
+#endif //TRABALHO_PRATICO_PARSER_H
