@@ -8,8 +8,8 @@ add_executable(Trabalho_Pratico
 
 
         #Classes Principais
-        src/Comandos/Parser.cpp
-        src/Comandos/Parser.h
+        src/Parser.cpp
+        src/Parser.h
         src/Interface.cpp
         src/Interface.h
         src/Jardim.cpp
@@ -45,6 +45,8 @@ add_executable(Trabalho_Pratico
         src/Ferramentas/Tesoura.h
         src/Ferramentas/FerramentaZ.cpp
         src/Ferramentas/FerramentaZ.h
+
+        #Classes para os comandos
         src/Comandos/Comando.cpp
         src/Comandos/Comando.h
         src/Comandos/comandoEntra.cpp

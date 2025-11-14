@@ -3,6 +3,9 @@
 //
 
 #include "ComandoEsq.h"
+#include <iostream>
+#include "../Jardim.h"
+#include "../Jardineiro.h"
 
 void ComandoEsq::executa(Jardim *jardim, const std::vector<std::string> &args) {
     if (args.size() != 0) {

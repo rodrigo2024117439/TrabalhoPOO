@@ -8,6 +8,7 @@
 #include "../Jardim.h"
 #include "../Jardineiro.h"
 #include "../Plantas/Planta.h"
+#include "../Solo.h"
 
 void ComandoLPlantas::executa(Jardim *jardim, const std::vector<std::string>& args) {
 
@@ -17,7 +18,7 @@ void ComandoLPlantas::executa(Jardim *jardim, const std::vector<std::string>& ar
     }
 
     std::cout<<"Plantas existentes:\n";
-    int plantasEncontradas;
+    int plantasEncontradas=0;
 
     for (int i=0; i<jardim->getLinhas(); i++) {
         for (int j=0; j<jardim->getColunas();j++) {

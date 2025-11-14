@@ -3,7 +3,9 @@
 //
 
 #include "ComandoCima.h"
-
+#include <iostream>
+#include "../Jardim.h"
+#include "../Jardineiro.h"
 
 void ComandoCima::executa(Jardim *jardim, const std::vector<std::string> &args) {
     if (args.size() != 0) {

@@ -6,7 +6,7 @@
 #include <iostream>
 #include <sstream>
 
-#include "../Jardim.h"
+#include "Jardim.h"
 
 
 Parser::Parser(const std::string &linha) : texto(linha) {

@@ -6,7 +6,7 @@
 #define TRABALHO_PRATICO_COMANDOENTRA_H
 #include "Comando.h"
 
-class comandoEntra: public Comandos {
+class ComandoEntra: public Comandos {
     public:
 
     void executa(Jardim *jardim , const std::vector<std::string>& args) override;

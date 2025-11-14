@@ -7,12 +7,18 @@
 
 #include "Jardim.h"
 
+#include <map>
+#include <string>
+#include "Comandos/Comando.h"
+
 class Interface {
     Jardim* meuJardim;
 
+    std::map<std::string, Comandos*> listaComandos;
+
 public:
-    Interface();  // Construtor
-    ~Interface(); // Destrutor
+    Interface();
+    ~Interface();
     void iniciar();
 };
 

@@ -3,7 +3,9 @@
 //
 
 #include "ComandoBaixo.h"
-
+#include <iostream>
+#include "../Jardim.h"
+#include "../Jardineiro.h"
 
 
 void ComandoBaixo::executa(Jardim *jardim, const std::vector<std::string> &args) {
@@ -26,7 +28,7 @@ void ComandoBaixo::executa(Jardim *jardim, const std::vector<std::string> &args)
     int linhaAtual=jardineiro->getLin();
     int novaLinha=linhaAtual+1;
 
-    if (novaLinha>jardim->getLinhas()) {
+    if (novaLinha>=jardim->getLinhas()) {
         std::cout<<"ERRO: Limite do jardim atingido";
         return;
     }

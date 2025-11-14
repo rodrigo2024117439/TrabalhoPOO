@@ -2,13 +2,15 @@
 // Created by Rodrigo on 14/11/2025.
 //
 
-#include "comandoEntra.h"
+#include "ComandoEntra.h"
 #include "../Jardineiro.h"
 #include "../Jardim.h"
 #include <iostream>
+#include <string>
+#include <cctype>
 
 
-void comandoEntra::executa(Jardim *jardim, const std::vector<std::string> &args) {
+void ComandoEntra::executa(Jardim *jardim, const std::vector<std::string> &args) {
 
 
 if (args.size() != 1) {
@@ -16,15 +18,16 @@ if (args.size() != 1) {
     return;
     }
     std::string argumento= args[0];
+    if ( argumento.length()!=2 || !isalpha(argumento[0]) || !isalpha(argumento[1])) {
+        std::cout << "ERRO: Argumento invalido (so se pode usar 2 letras)\n";
+        return;
+    }
     char argumento_linhas= argumento[0];
     char argumento_colunas= argumento[1];
     int index_linha = argumento_linhas-'a';
     int index_colunas = argumento_colunas-'a';
 
-    if ( argumento.length()!=2 || !isalpha(argumento_linhas) || !isalpha(argumento_colunas)) {
-        std::cout << "ERRO: Argumento invalido (so se pode usar 2 letras)\n";
-        return;
-    }
+
     if (index_linha < 0 || index_linha >= jardim->getLinhas() || index_colunas < 0 || index_colunas >= jardim->getColunas()) {
         std::cout << "ERRO- Numero de linhas ou colunas invalido\n";
         return;

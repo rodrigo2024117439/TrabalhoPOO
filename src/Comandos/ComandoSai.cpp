@@ -5,8 +5,10 @@
 #include "ComandoSai.h"
 #include "../Jardim.h"
 #include "../Jardineiro.h"
+#include <iostream>
+#include <vector>
 
-void executa(Jardim *jardim, const std::vector<std::string>&args) {
+void ComandoSai::executa(Jardim *jardim, const std::vector<std::string>&args) {
 
     if (args.size()!= 0) {
         std::cout<<"ERRO: Este comando nao aceita argumentos \n";
