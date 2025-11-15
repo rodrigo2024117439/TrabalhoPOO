@@ -12,7 +12,9 @@
 #include "Comandos/Comandos_mover/ComandoEsq.h"
 #include "Comandos/Comandos_mover/ComandoDir.h"
 #include "Comandos/Comandos_Plantas/ComandoPlantar.h"
-// (Adiciona aqui o #include do ComandoPlanta.h quando o criares)
+#include "Comandos/Comandos_Plantas/ComandoLPlantaEsp.h"
+#include "Comandos/ComandoAvanca.h"
+
 
 Interface::Interface() : meuJardim(nullptr) {
     listaComandos["entra"] = new ComandoEntra();
@@ -23,7 +25,9 @@ Interface::Interface() : meuJardim(nullptr) {
     listaComandos["b"] = new ComandoBaixo();
     listaComandos["e"] = new ComandoEsq();
     listaComandos["d"] = new ComandoDir();
-
+    listaComandos["planta"] = new ComandoPlantar();
+    listaComandos["lplanta"] = new ComandoLPlantaEsp();
+    listaComandos["avanca"] = new ComandoAvanca();
 }
 
 Interface::~Interface() {

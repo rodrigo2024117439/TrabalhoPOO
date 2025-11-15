@@ -71,4 +71,6 @@ add_executable(Trabalho_Pratico
         src/Comandos/Comandos_Plantas/ComandoLPlantaEsp.h
         src/Comandos/ComandoAvanca.cpp
         src/Comandos/ComandoAvanca.h
+        src/Comandos/ComandoLArea.cpp
+        src/Comandos/ComandoLArea.h
 )
