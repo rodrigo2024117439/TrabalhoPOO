@@ -5,7 +5,7 @@
 #ifndef TRABALHO_PRATICO_COMANDOESQ_H
 #define TRABALHO_PRATICO_COMANDOESQ_H
 
-#include "Comando.h"
+#include "../Comando.h"
 
 
 class ComandoEsq:public Comandos {

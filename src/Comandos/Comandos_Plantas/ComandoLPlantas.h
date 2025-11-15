@@ -5,7 +5,7 @@
 #ifndef TRABALHO_PRATICO_COMANDOLPLANTAS_H
 #define TRABALHO_PRATICO_COMANDOLPLANTAS_H
 
-#include "Comando.h"
+#include "../Comando.h"
 
 class ComandoLPlantas: public Comandos {
 

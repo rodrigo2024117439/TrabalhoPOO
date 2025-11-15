@@ -4,7 +4,7 @@
 
 #ifndef TRABALHO_PRATICO_COMANDODIR_H
 #define TRABALHO_PRATICO_COMANDODIR_H
-#include "Comando.h"
+#include "../Comando.h"
 
 class ComandoDir: public Comandos{
 

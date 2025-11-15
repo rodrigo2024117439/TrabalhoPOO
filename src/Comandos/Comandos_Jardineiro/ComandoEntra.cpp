@@ -3,8 +3,8 @@
 //
 
 #include "ComandoEntra.h"
-#include "../Jardineiro.h"
-#include "../Jardim.h"
+#include "../../Jardineiro.h"
+#include "../../Jardim.h"
 #include <iostream>
 #include <string>
 #include <cctype>

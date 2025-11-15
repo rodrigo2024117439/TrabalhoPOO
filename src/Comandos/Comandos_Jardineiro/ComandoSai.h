@@ -4,7 +4,7 @@
 
 #ifndef TRABALHO_PRATICO_COMANDOSAIR_H
 #define TRABALHO_PRATICO_COMANDOSAIR_H
-#include "Comando.h"
+#include "../Comando.h"
 #include <iostream>
 
 class ComandoSai: public Comandos {

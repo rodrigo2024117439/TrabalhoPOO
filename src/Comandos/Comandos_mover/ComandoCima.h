@@ -4,7 +4,7 @@
 
 #ifndef TRABALHO_PRATICO_COMANDOCIMA_H
 #define TRABALHO_PRATICO_COMANDOCIMA_H
-#include "Comando.h"
+#include "../Comando.h"
 
 
 class ComandoCima:public Comandos {

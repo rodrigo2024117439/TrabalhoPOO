@@ -5,10 +5,10 @@
 #include "ComandoLPlantas.h"
 
 #include <iostream>
-#include "../Jardim.h"
-#include "../Jardineiro.h"
-#include "../Plantas/Planta.h"
-#include "../Solo.h"
+#include "../../Jardim.h"
+#include "../../Jardineiro.h"
+#include "../../Plantas/Planta.h"
+#include "../../Solo.h"
 
 void ComandoLPlantas::executa(Jardim *jardim, const std::vector<std::string>& args) {
 

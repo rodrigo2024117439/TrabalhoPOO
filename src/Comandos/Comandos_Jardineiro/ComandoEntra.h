@@ -4,7 +4,7 @@
 
 #ifndef TRABALHO_PRATICO_COMANDOENTRA_H
 #define TRABALHO_PRATICO_COMANDOENTRA_H
-#include "Comando.h"
+#include "../Comando.h"
 
 class ComandoEntra: public Comandos {
     public:

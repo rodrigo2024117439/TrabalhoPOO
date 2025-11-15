@@ -5,7 +5,7 @@
 #ifndef TRABALHO_PRATICO_COMANDOBAIXO_H
 #define TRABALHO_PRATICO_COMANDOBAIXO_H
 
-#include "Comando.h"
+#include "../Comando.h"
 
 class ComandoBaixo:public Comandos {
 public:

@@ -24,5 +24,7 @@ public:
     Jardineiro* getJardineiro() const { return meuJardineiro; }
 
     Solo *getSolo(int lin,int col) const;
+
+    void avancaUMinstante();
 };
 #endif //TRABALHO_PRATICO_JARDIM_H

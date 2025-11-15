@@ -3,12 +3,12 @@
 //
 
 #include "ComandoColhe.h"
-#include "../Solo.h"
-#include "../Jardim.h"
+#include "../../Solo.h"
+#include "../../Jardim.h"
 #include <iostream>
 #include <string>
 #include <cctype>
-#include "../Jardineiro.h"
+#include "../../Jardineiro.h"
 
 void ComandoColhe::executa(Jardim *jardim, const std::vector<std::string> &args) {
     if (args.size()!= 1) {

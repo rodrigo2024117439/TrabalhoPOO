@@ -2,12 +2,13 @@
 // Created by Rodrigo on 14/11/2025.
 //
 
-#include "ComandoCima.h"
+#include "ComandoBaixo.h"
 #include <iostream>
-#include "../Jardim.h"
-#include "../Jardineiro.h"
+#include "../../Jardim.h"
+#include "../../Jardineiro.h"
 
-void ComandoCima::executa(Jardim *jardim, const std::vector<std::string> &args) {
+
+void ComandoBaixo::executa(Jardim *jardim, const std::vector<std::string> &args) {
     if (args.size() != 0) {
         std::cout << "ERO:este comando nao aceita argumentos";
         return;
@@ -25,9 +26,9 @@ void ComandoCima::executa(Jardim *jardim, const std::vector<std::string> &args) 
     }
 
     int linhaAtual=jardineiro->getLin();
-    int novaLinha=linhaAtual-1;
+    int novaLinha=linhaAtual+1;
 
-    if (novaLinha<0) {
+    if (novaLinha>=jardim->getLinhas()) {
         std::cout<<"ERRO: Limite do jardim atingido";
         return;
     }

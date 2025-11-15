@@ -3,14 +3,15 @@
 #include <string>
 
 #include "Parser.h"
-#include "Comandos/comandoEntra.h"
-#include "Comandos/ComandoSai.h"
-#include "Comandos/ComandoColhe.h"
-#include "Comandos/ComandoLPlantas.h"
-#include "Comandos/ComandoCima.h"
-#include "Comandos/ComandoBaixo.h"
-#include "Comandos/ComandoEsq.h"
-#include "Comandos/ComandoDir.h"
+#include "Comandos/Comandos_Jardineiro/ComandoEntra.h"
+#include "Comandos/Comandos_Jardineiro/ComandoSai.h"
+#include "Comandos/Comandos_Jardineiro/ComandoColhe.h"
+#include "Comandos/Comandos_Plantas/ComandoLPlantas.h"
+#include "Comandos/Comandos_mover/ComandoCima.h"
+#include "Comandos/Comandos_mover/ComandoBaixo.h"
+#include "Comandos/Comandos_mover/ComandoEsq.h"
+#include "Comandos/Comandos_mover/ComandoDir.h"
+#include "Comandos/Comandos_Plantas/ComandoPlantar.h"
 // (Adiciona aqui o #include do ComandoPlanta.h quando o criares)
 
 Interface::Interface() : meuJardim(nullptr) {
@@ -22,7 +23,7 @@ Interface::Interface() : meuJardim(nullptr) {
     listaComandos["b"] = new ComandoBaixo();
     listaComandos["e"] = new ComandoEsq();
     listaComandos["d"] = new ComandoDir();
-    // (Adiciona o "planta" e os outros aqui)
+
 }
 
 Interface::~Interface() {

@@ -49,20 +49,26 @@ add_executable(Trabalho_Pratico
         #Classes para os comandos
         src/Comandos/Comando.cpp
         src/Comandos/Comando.h
-        src/Comandos/comandoEntra.cpp
-        src/Comandos/comandoEntra.h
-        src/Comandos/ComandoSai.cpp
-        src/Comandos/ComandoSai.h
-        src/Comandos/ComandoLPlantas.cpp
-        src/Comandos/ComandoLPlantas.h
-        src/Comandos/ComandoColhe.cpp
-        src/Comandos/ComandoColhe.h
-        src/Comandos/ComandoCima.cpp
-        src/Comandos/ComandoCima.h
-        src/Comandos/ComandoBaixo.cpp
-        src/Comandos/ComandoBaixo.h
-        src/Comandos/ComandoEsq.cpp
-        src/Comandos/ComandoEsq.h
-        src/Comandos/ComandoDir.cpp
-        src/Comandos/ComandoDir.h
+        src/Comandos/Comandos_Jardineiro/ComandoEntra.cpp
+        src/Comandos/Comandos_Jardineiro/ComandoEntra.h
+        src/Comandos/Comandos_Jardineiro/ComandoSai.cpp
+        src/Comandos/Comandos_Jardineiro/ComandoSai.h
+        src/Comandos/Comandos_Plantas/ComandoLPlantas.cpp
+        src/Comandos/Comandos_Plantas/ComandoLPlantas.h
+        src/Comandos/Comandos_Jardineiro/ComandoColhe.cpp
+        src/Comandos/Comandos_Jardineiro/ComandoColhe.h
+        src/Comandos/Comandos_mover/ComandoCima.cpp
+        src/Comandos/Comandos_mover/ComandoCima.h
+        src/Comandos/Comandos_mover/ComandoBaixo.cpp
+        src/Comandos/Comandos_mover/ComandoBaixo.h
+        src/Comandos/Comandos_mover/ComandoEsq.cpp
+        src/Comandos/Comandos_mover/ComandoEsq.h
+        src/Comandos/Comandos_mover/ComandoDir.cpp
+        src/Comandos/Comandos_mover/ComandoDir.h
+        src/Comandos/Comandos_Plantas/ComandoPlantar.cpp
+        src/Comandos/Comandos_Plantas/ComandoPlantar.h
+        src/Comandos/Comandos_Plantas/ComandoLPlantaEsp.cpp
+        src/Comandos/Comandos_Plantas/ComandoLPlantaEsp.h
+        src/Comandos/ComandoAvanca.cpp
+        src/Comandos/ComandoAvanca.h
 )

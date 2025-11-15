@@ -4,7 +4,7 @@
 
 #ifndef TRABALHO_PRATICO_COMANDOCOLHE_H
 #define TRABALHO_PRATICO_COMANDOCOLHE_H
-#include "Comando.h"
+#include "../Comando.h"
 class ComandoColhe: public Comandos {
     public:
 
