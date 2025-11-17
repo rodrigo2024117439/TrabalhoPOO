@@ -3,6 +3,7 @@
 //
 
 #include "ComandoAvanca.h"
+#include "../Jardim.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,20 +20,22 @@ void ComandoAvanca::executa(Jardim *jardim, const std::vector<std::string> &args
         try {
             const std::string numero = args[0];
             n_instantes = std::stoi(numero);
-        }catch (std::invalid_argument) {
+        }catch (const std::invalid_argument) {
             std::cout << "ERRO: o argumento tem que ser um inteiro positivo";
             return;
         }
     }
 
     if (n_instantes < 1) {
-        std::cout << "ERRO: O argumento tem que ser um interiro positivo";
+        std::cout << "ERRO: O argumento tem que ser um inteiro positivo\n";
+        return;
     }
 
-    std::cout<<"a simulacao avanciu " << n_instantes <<" instantes \n";
+    for (int i= 0; i < n_instantes; i++) {
+        jardim->avancaUMinstante();
+    }
 
+    std::cout<<"a simulacao avancou " << n_instantes <<" instantes \n";
 
-
-
-
+    jardim->printJardim();
 }

@@ -14,7 +14,7 @@ class Solo {
     Planta* planta;
     Ferramenta* ferramenta;
 
-    public:
+public:
     Solo();
     ~Solo();
 
@@ -27,5 +27,7 @@ class Solo {
 
     void setPlanta(Planta* p);
     void setFerramenta(Ferramenta* f);
+    void setAgua(int novoValor);
+    void setNutrientes(int novoValor);
 };
 #endif //TRABALHO_PRATICO_SOLO_H

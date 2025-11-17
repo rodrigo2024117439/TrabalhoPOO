@@ -63,13 +63,17 @@ Solo *Jardim::getSolo(int lin, int col) const {
 
 
 void Jardim::avancaUMinstante() {
-
     for (int i=0; i< linhas; i++) {
         for (int j=0; j< colunas; j++) {
             Solo *solo = getSolo(i,j);
             Planta *planta=solo->getPlanta();
             if (planta != nullptr) {
                 planta->avancaInstante(solo);
+
+                if (planta->getSaude() <= 0) {
+                    std::cout << "A planta " << planta->getEspecie() << "morreu em " << i << "," << j << "\n";
+                    solo->setPlanta(nullptr);
+                }
             }
         }
     }
@@ -79,5 +83,4 @@ void Jardim::avancaUMinstante() {
     }
     meuJardineiro->resetContadoresTurno();
 }
-
 

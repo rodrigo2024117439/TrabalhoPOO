@@ -36,3 +36,11 @@ void Solo::setFerramenta(Ferramenta* f) {
     delete ferramenta;
     ferramenta = f;
 }
+
+void Solo::setAgua(int novoValor) {
+    agua = (novoValor < 0) ? 0: novoValor;
+}
+
+void Solo::setNutrientes(int novoValor) {
+    nutrientes = (novoValor < 0) ? 0: novoValor;
+}

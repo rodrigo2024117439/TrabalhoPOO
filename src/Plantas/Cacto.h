@@ -11,6 +11,8 @@ class Cacto : public Planta {
     int instantesComMuitaAgua;
     int instantesSemNutrientes;
 
+    void morre(Solo* solo);
+
 public:
     Cacto();
 
