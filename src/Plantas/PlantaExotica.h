@@ -1,17 +1,12 @@
-//
-// Created by Rodrigo on 31/10/2025.
-//
-
 #ifndef TRABALHO_PRATICO_PLANTAEXOTICA_H
 #define TRABALHO_PRATICO_PLANTAEXOTICA_H
-#include "planta.h"
-
+#include "Planta.h"
 
 class PlantaExotica: public Planta {
-    public:PlantaExotica();
+public:
+    PlantaExotica();
 
-    void avancaInstante(Solo *solo) override;
+    void avancaInstante(Solo *solo, Jardim* jardim, int l, int c) override;
 };
 
-
-#endif //TRABALHO_PRATICO_PLANTAEXOTICA_H
+#endif

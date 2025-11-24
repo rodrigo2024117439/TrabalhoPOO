@@ -67,7 +67,7 @@ void Jardim::avancaUMinstante() {
             Solo *solo = getSolo(i,j);
             Planta *planta=solo->getPlanta();
             if (planta != nullptr) {
-                planta->avancaInstante(solo);
+                planta->avancaInstante(solo, this, i, j);
 
                 if (planta->getSaude() <= 0) {
                     std::cout << "A planta " << planta->getEspecie() << "morreu em " << i << "," << j << "\n";

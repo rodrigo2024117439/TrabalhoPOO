@@ -1,7 +1,10 @@
 #include "Cacto.h"
 #include "../Solo.h"
 #include "../Settings.h"
+#include "../Jardim.h"
 #include <algorithm>
+#include <vector>
+
 
 Cacto::Cacto() : Planta('c', "Cacto", 1, 0, 0), instantesComMuitaAgua(0), instantesSemNutrientes(0) {
 }
@@ -58,3 +61,42 @@ void Cacto::avancaInstante(Solo* solo, Jardim* jardim, int l, int c) {
     } else {
         instantesSemNutrientes = 0;
     }
+
+    if (this->nutrientes > Settings::Cacto::multiplica_nutrientes_maior && 
+        this->agua > Settings::Cacto::multiplica_agua_maior) {
+
+        std::vector<std::pair<int, int>> vizinhosLivres;
+
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (i == 0 && j == 0) continue;
+                int nL = l + i;
+                int nC = c + j;
+
+                if (nL >= 0 && nL < jardim->getLinhas() && nC >= 0 && nC < jardim->getColunas()) {
+                    if (jardim->getSolo(nL, nC)->getPlanta() == nullptr) {
+                        vizinhosLivres.push_back({nL, nC});
+                    }
+                }
+            }
+        }
+
+        if (!vizinhosLivres.empty()) {
+            int idx = rand() % vizinhosLivres.size();
+            Solo* soloFilho = jardim->getSolo(vizinhosLivres[idx].first, vizinhosLivres[idx].second);
+            
+            Cacto* filho = new Cacto();
+
+            int metadeAgua = this->agua / 2;
+            int metadeNutri = this->nutrientes / 2;
+
+            this->agua = metadeAgua;
+            this->nutrientes = metadeNutri;
+
+            filho->agua = metadeAgua; 
+            filho->nutrientes = metadeNutri;
+
+            soloFilho->setPlanta(filho);
+        }
+    }
+}

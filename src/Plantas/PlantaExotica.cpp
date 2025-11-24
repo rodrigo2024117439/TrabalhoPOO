@@ -1,17 +1,9 @@
-//
-// Created by Rodrigo on 31/10/2025.
-//
-
 #include "PlantaExotica.h"
-
 #include "Planta.h"
 
-
-PlantaExotica::PlantaExotica():Planta('x',"PlantaExotica",0,0,0) {
-
-}
-void PlantaExotica::avancaInstante(Solo* solo) {
-
+PlantaExotica::PlantaExotica() : Planta('x',"PlantaExotica", 10, 10, 10) {
 }
 
-//ainda por decidir
+void PlantaExotica::avancaInstante(Solo *solo, Jardim* jardim, int l, int c) {
+    // Implementar comportamento especial depois
+}

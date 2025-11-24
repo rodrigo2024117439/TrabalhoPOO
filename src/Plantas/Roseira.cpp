@@ -5,6 +5,7 @@
 #include "Roseira.h"
 #include "../Solo.h"
 #include "../Settings.h"
+#include "../Jardim.h"
 #include <vector>
 #include <algorithm>
 #include <cstdlib>
