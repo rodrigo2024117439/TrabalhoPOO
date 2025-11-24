@@ -7,6 +7,7 @@
 #include <string>
 
 class Solo;
+class Jardim;
 
 class Planta {
 protected:
@@ -20,7 +21,7 @@ protected:
     Planta(char s, std::string esp, int h, int a, int n);
 
     virtual ~Planta() = default;
-    virtual void avancaInstante(Solo* solo) = 0;
+    virtual void avancaInstante(Solo* solo, Jardim* jardim, int l, int c) = 0;
 
     char getSimbolo() const  {return simbolo; }
     std::string getEspecie() const { return especie; }

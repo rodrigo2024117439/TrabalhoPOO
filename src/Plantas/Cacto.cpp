@@ -17,7 +17,7 @@ void Cacto::morre(Solo* solo) {
 }
 
 // MEta 2
-void Cacto::avancaInstante(Solo* solo) {
+void Cacto::avancaInstante(Solo* solo, Jardim* jardim, int l, int c) {
     if (this->saude <= 0) {
         return;
     }

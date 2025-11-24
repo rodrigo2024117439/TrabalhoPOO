@@ -15,7 +15,7 @@ class Roseira : public Planta {
 public:
     Roseira();
 
-    void avancaInstante(Solo* solo) override;
+    void avancaInstante(Solo* solo, Jardim* jardim, int l, int c) override;
 
 
 };

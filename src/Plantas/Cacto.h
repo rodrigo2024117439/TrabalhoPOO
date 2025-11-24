@@ -16,7 +16,7 @@ class Cacto : public Planta {
 public:
     Cacto();
 
-    void avancaInstante(Solo* solo) override;
+    void avancaInstante(Solo* solo, Jardim* jardim, int l, int c) override;
 };
 
 #endif
