@@ -5,10 +5,11 @@
 #ifndef TRABALHO_PRATICO_COMANDO_H
 #define TRABALHO_PRATICO_COMANDO_H
 
-#include "Comando.h"
-#include "../Jardim.h"
-#include "iostream"
 
+#include "../Jardim.h"
+#include <iostream>
+#include <vector>
+#include <string>
 
 
 class Comandos {

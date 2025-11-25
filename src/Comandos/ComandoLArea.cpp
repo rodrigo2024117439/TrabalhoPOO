@@ -7,6 +7,7 @@
 #include "../Solo.h"
 #include "../Plantas/Planta.h"
 #include "../Ferramentas/Ferramenta.h"
+#include <iostream>
 
 void ComandoLArea::executa(Jardim *jardim, const std::vector<std::string> &args) {
     if (args.size() != 0) {

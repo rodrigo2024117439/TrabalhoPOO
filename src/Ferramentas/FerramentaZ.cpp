@@ -3,7 +3,7 @@
 #include "../Plantas/Planta.h"
 #include <iostream>
 
-Triturador::Triturador() : Ferramenta('m', "Triturador Organico"), usosRestantes(5) {
+Triturador::Triturador() : Ferramenta('z', "Triturador Organico"), usosRestantes(5) {
 }
 
 bool Triturador::avancaInstante(Jardineiro* jardineiro, Solo* solo) {

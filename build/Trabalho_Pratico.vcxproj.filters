@@ -88,6 +88,15 @@
     <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoLArea.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoIFerr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoPega.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoLarga.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Parser.h">
@@ -175,6 +184,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoLArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoIFerr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoPega.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoLarga.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

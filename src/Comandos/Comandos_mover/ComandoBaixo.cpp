@@ -35,6 +35,7 @@ void ComandoBaixo::executa(Jardim *jardim, const std::vector<std::string> &args)
 
     jardineiro->setPos(novaLinha, jardineiro->getCol());
     jardineiro->mover();
+    jardim->verificarFerramentasNoChao();
 
     jardim->printJardim();
 }

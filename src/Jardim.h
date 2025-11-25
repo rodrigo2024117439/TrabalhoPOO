@@ -12,6 +12,7 @@ class Jardim {
     int linhas, colunas;
     Solo **area_solo;
     Jardineiro* meuJardineiro;
+    void spawnFerramentaAleatoria();
 
 public:
     Jardim(int lin, int col);
@@ -26,5 +27,7 @@ public:
     Solo *getSolo(int lin,int col) const;
 
     void avancaUMinstante();
+
+    void verificarFerramentasNoChao();
 };
 #endif //TRABALHO_PRATICO_JARDIM_H

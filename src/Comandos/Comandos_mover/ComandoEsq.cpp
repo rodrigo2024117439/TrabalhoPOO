@@ -34,6 +34,7 @@ void ComandoEsq::executa(Jardim *jardim, const std::vector<std::string> &args) {
 
     jardineiro->setPos(jardineiro->getLin(), novaCol);
     jardineiro->mover();
+    jardim->verificarFerramentasNoChao();
 
     jardim->printJardim();
 }

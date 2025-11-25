@@ -5,7 +5,12 @@
 #include "Jardim.h"
 #include <iostream>
 #include <ctime>
+#include <cstdlib>
+
 #include "Plantas/Planta.h"
+#include "Ferramentas/Regador.h"
+#include "Ferramentas/Adubo.h"
+#include "Ferramentas/Tesoura.h"
 #include "Ferramentas/FerramentaZ.h"
 
 Jardim::Jardim(int lin, int col): linhas(lin), colunas (col) {
@@ -21,6 +26,10 @@ Jardim::Jardim(int lin, int col): linhas(lin), colunas (col) {
     }
 
     meuJardineiro = new Jardineiro();
+    
+    for (int i = 0; i < 3; ++i) {
+        spawnFerramentaAleatoria();
+    }
 }
 
 Jardim::~Jardim() {
@@ -61,17 +70,16 @@ Solo *Jardim::getSolo(int lin, int col) const {
 }
 
 void Jardim::avancaUMinstante() {
-    for (int i=0; i< linhas; i++) {
-        for (int j=0; j< colunas; j++) {
-            Solo *solo = getSolo(i,j);
-            Planta *planta=solo->getPlanta();
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            Solo *solo = getSolo(i, j);
+            Planta *planta = solo->getPlanta();
             if (planta != nullptr) {
                 planta->avancaInstante(solo, this, i, j);
 
                 if (planta->getSaude() <= 0) {
-                    char letraLinha = 'a' + i;
-                    char letraColuna = 'a' + j;
-
+                    char letraLinha = 'A' + i;
+                    char letraColuna = 'A' + j;
                     std::cout << "A planta " << planta->getEspecie() << " morreu na posicao " << letraLinha << letraColuna << "\n";
                     solo->setPlanta(nullptr);
                 }
@@ -81,23 +89,69 @@ void Jardim::avancaUMinstante() {
 
     if (meuJardineiro->estaNoJardim()) {
         int l = meuJardineiro->getLin();
+        int c = meuJardineiro->getCol();
+        Solo* soloAtual = getSolo(l, c);
+
+        Ferramenta* ferramenta = meuJardineiro->getFerramentaNaMao();
+
+        if (ferramenta != nullptr) {
+            bool quebrou = ferramenta->avancaInstante(meuJardineiro, soloAtual);
+            
+            if (quebrou) {
+                meuJardineiro->removerFerramentaPartida();
+            }
+        }
+    }
+    meuJardineiro->resetContadoresTurno();
+}
+
+void Jardim::spawnFerramentaAleatoria() {
+    int maxTentativas = 100;
+    int tentativas = 0;
+
+    while (tentativas < maxTentativas) {
+        int l = rand() % linhas;
+        int c = rand() % colunas;
+        Solo* solo = getSolo(l, c);
+
+        if (solo->getFerramenta() == nullptr && solo->getPlanta() == nullptr) {
+            
+            int tipo = rand() % 4;
+            Ferramenta* nova = nullptr;
+
+            switch (tipo) {
+                case 0: nova = new Regador(); break;
+                case 1: nova = new Adubo(); break;
+                case 2: nova = new Tesoura(); break;
+                case 3: nova = new Triturador(); break;
+            }
+
+            if (nova != nullptr) {
+                solo->setFerramenta(nova);
+                return;
+            }
+        }
+        tentativas++;
+    }
+}
+
+void Jardim::verificarFerramentasNoChao() {
+    if (!meuJardineiro->estaNoJardim()) return;
+
+    int l = meuJardineiro->getLin();
     int c = meuJardineiro->getCol();
-    Solo* soloAtual = getSolo(l, c);
+    Solo* solo = getSolo(l, c);
 
-    //Obter ferramenta da mão
-    Ferramenta* ferramenta = meuJardineiro->getFerramentaNaMao();
+    Ferramenta* f = solo->getFerramenta();
 
-    //Usar ferramenta
-    if (ferramenta != nullptr) {
-        // avancaInstante retorna true se a ferramenta partiu
-        bool quebrou = ferramenta->avancaInstante(meuJardineiro, soloAtual);
-        
-        if (quebrou) {
-            meuJardineiro->removerFerramentaPartida();
+    if (f != nullptr) {
+        if (meuJardineiro->adicionarFerramenta(f)) {
+            solo->setFerramenta(nullptr);
+            std::cout << ">>> Encontraste: " << f->getTipo() << "! Foi para a mochila.\n";
+            
+            spawnFerramentaAleatoria();
+        } else {
+            std::cout << ">>> Encontraste uma ferramenta, mas a mochila pode estar cheia!\n";
         }
     }
 }
-meuJardineiro->resetContadoresTurno();
-}
-
-

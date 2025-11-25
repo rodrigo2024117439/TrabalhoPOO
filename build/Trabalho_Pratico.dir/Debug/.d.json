@@ -1,11 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comandolarea.cpp",
+        "Source": "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comandos_ferramentas\\comandopega.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comandolarea.h",
-            "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comando.h",
+            "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comandos_ferramentas\\comandopega.h",
             "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comando.h",
             "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\jardim.h",
             "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\jardineiro.h",
@@ -136,8 +135,7 @@
             "c:\\program files (x86)\\microsoft visual studio\\2022\\buildtools\\vc\\tools\\msvc\\14.44.35207\\include\\__msvc_xlocinfo_types.hpp",
             "c:\\program files (x86)\\microsoft visual studio\\2022\\buildtools\\vc\\tools\\msvc\\14.44.35207\\include\\clocale",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\locale.h",
-            "c:\\program files (x86)\\microsoft visual studio\\2022\\buildtools\\vc\\tools\\msvc\\14.44.35207\\include\\ostream",
-            "c:\\users\\user\\documents\\uni\\poo\\trabalhopoo\\src\\plantas\\planta.h"
+            "c:\\program files (x86)\\microsoft visual studio\\2022\\buildtools\\vc\\tools\\msvc\\14.44.35207\\include\\ostream"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

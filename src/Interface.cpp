@@ -15,6 +15,9 @@
 #include "Comandos/Comandos_Plantas/ComandoLPlantaEsp.h"
 #include "Comandos/ComandoLArea.h"
 #include "Comandos/ComandoAvanca.h"
+#include "Comandos/Comandos_Ferramentas/ComandoIFerr.h"
+#include "Comandos/Comandos_Ferramentas/ComandoPega.h"
+#include "Comandos/Comandos_Ferramentas/ComandoLarga.h"
 
 
 Interface::Interface() : meuJardim(nullptr) {
@@ -30,6 +33,9 @@ Interface::Interface() : meuJardim(nullptr) {
     listaComandos["lplanta"] = new ComandoLPlantaEsp();
     listaComandos["larea"] = new ComandoLArea();
     listaComandos["avanca"] = new ComandoAvanca();
+    listaComandos["iferr"] = new ComandoIFerr();
+    listaComandos["pega"] = new ComandoPega();
+    listaComandos["larga"] = new ComandoLarga();
 }
 
 Interface::~Interface() {

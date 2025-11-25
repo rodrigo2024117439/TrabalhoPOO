@@ -73,4 +73,10 @@ add_executable(Trabalho_Pratico
         src/Comandos/ComandoAvanca.h
         src/Comandos/ComandoLArea.cpp
         src/Comandos/ComandoLArea.h
+        src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp
+        src/Comandos/Comandos_Ferramentas/ComandoIFerr.h
+        src/Comandos/Comandos_Ferramentas/ComandoPega.cpp
+        src/Comandos/Comandos_Ferramentas/ComandoPega.h
+        src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp
+        src/Comandos/Comandos_Ferramentas/ComandoLarga.h
 )
