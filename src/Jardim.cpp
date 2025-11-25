@@ -142,7 +142,7 @@ void Jardim::verificarFerramentasNoChao() {
     int c = meuJardineiro->getCol();
     Solo* solo = getSolo(l, c);
 
-    Ferramenta* f = solo->getFerramenta();
+    Ferramenta* f = solo->retirarFerramenta();
 
     if (f != nullptr) {
         if (meuJardineiro->adicionarFerramenta(f)) {

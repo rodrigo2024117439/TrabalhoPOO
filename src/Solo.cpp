@@ -44,3 +44,9 @@ void Solo::setAgua(int novoValor) {
 void Solo::setNutrientes(int novoValor) {
     nutrientes = (novoValor < 0) ? 0: novoValor;
 }
+
+Ferramenta* Solo::retirarFerramenta() {
+    Ferramenta* temp = this->ferramenta; // Guarda o ponteiro temporariamente
+    this->ferramenta = nullptr;          // Desliga o solo da ferramenta (sem apagar!)
+    return temp;                         // Devolve a ferramenta "viva"
+}

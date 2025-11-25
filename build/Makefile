@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\diogo\Documents\uni\so\TrabalhoPOO
+CMAKE_SOURCE_DIR = C:\Users\diogo\Documents\uni\poo\TrabalhoPOO
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\diogo\Documents\uni\so\TrabalhoPOO\build
+CMAKE_BINARY_DIR = C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\diogo\Documents\uni\so\TrabalhoPOO\build\CMakeFiles C:\Users\diogo\Documents\uni\so\TrabalhoPOO\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\build\CMakeFiles C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\diogo\Documents\uni\so\TrabalhoPOO\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -199,6 +199,78 @@ src/Comandos/ComandoLArea.s: src/Comandos/ComandoLArea.cpp.s
 src/Comandos/ComandoLArea.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/ComandoLArea.cpp.s
 .PHONY : src/Comandos/ComandoLArea.cpp.s
+
+src/Comandos/Comandos_Ferramentas/ComandoIFerr.obj: src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.obj
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoIFerr.obj
+
+# target to build an object file
+src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.obj
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.obj
+
+src/Comandos/Comandos_Ferramentas/ComandoIFerr.i: src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.i
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoIFerr.i
+
+# target to preprocess a source file
+src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.i
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.i
+
+src/Comandos/Comandos_Ferramentas/ComandoIFerr.s: src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.s
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoIFerr.s
+
+# target to generate assembly for a file
+src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.s
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoIFerr.cpp.s
+
+src/Comandos/Comandos_Ferramentas/ComandoLarga.obj: src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.obj
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoLarga.obj
+
+# target to build an object file
+src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.obj
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.obj
+
+src/Comandos/Comandos_Ferramentas/ComandoLarga.i: src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.i
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoLarga.i
+
+# target to preprocess a source file
+src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.i
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.i
+
+src/Comandos/Comandos_Ferramentas/ComandoLarga.s: src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.s
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoLarga.s
+
+# target to generate assembly for a file
+src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.s
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp.s
+
+src/Comandos/Comandos_Ferramentas/ComandoPega.obj: src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.obj
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoPega.obj
+
+# target to build an object file
+src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.obj
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.obj
+
+src/Comandos/Comandos_Ferramentas/ComandoPega.i: src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.i
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoPega.i
+
+# target to preprocess a source file
+src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.i
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.i
+
+src/Comandos/Comandos_Ferramentas/ComandoPega.s: src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.s
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoPega.s
+
+# target to generate assembly for a file
+src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico.dir\build.make CMakeFiles/Trabalho_Pratico.dir/src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.s
+.PHONY : src/Comandos/Comandos_Ferramentas/ComandoPega.cpp.s
 
 src/Comandos/Comandos_Jardineiro/ComandoColhe.obj: src/Comandos/Comandos_Jardineiro/ComandoColhe.cpp.obj
 .PHONY : src/Comandos/Comandos_Jardineiro/ComandoColhe.obj
@@ -842,6 +914,15 @@ help:
 	@echo ... src/Comandos/ComandoLArea.obj
 	@echo ... src/Comandos/ComandoLArea.i
 	@echo ... src/Comandos/ComandoLArea.s
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoIFerr.obj
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoIFerr.i
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoIFerr.s
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoLarga.obj
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoLarga.i
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoLarga.s
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoPega.obj
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoPega.i
+	@echo ... src/Comandos/Comandos_Ferramentas/ComandoPega.s
 	@echo ... src/Comandos/Comandos_Jardineiro/ComandoColhe.obj
 	@echo ... src/Comandos/Comandos_Jardineiro/ComandoColhe.i
 	@echo ... src/Comandos/Comandos_Jardineiro/ComandoColhe.s

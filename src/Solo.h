@@ -27,6 +27,7 @@ public:
 
     void setPlanta(Planta* p);
     void setFerramenta(Ferramenta* f);
+    Ferramenta* retirarFerramenta();
     void setAgua(int novoValor);
     void setNutrientes(int novoValor);
 };

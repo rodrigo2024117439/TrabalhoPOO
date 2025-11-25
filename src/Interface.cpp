@@ -1,6 +1,7 @@
 #include "Interface.h"
 #include <iostream>
 #include <string>
+#include "Jardim.h"
 
 #include "Parser.h"
 #include "Comandos/Comandos_Jardineiro/ComandoEntra.h"
