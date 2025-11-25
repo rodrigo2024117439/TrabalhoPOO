@@ -14,7 +14,7 @@ public:
 
     int getAguaRestante() const { return aguaRestante; }
 
-    void avancaInstante(Jardineiro* jardineiro) override;
+    bool avancaInstante(Jardineiro* jardineiro, Solo* solo) override;
 };
 
 #endif

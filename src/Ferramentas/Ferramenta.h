@@ -7,6 +7,7 @@
 #include <string>
 
 class Jardineiro;
+class Solo;
 
 class Ferramenta {
 private:
@@ -26,6 +27,6 @@ public:
     char getSimbolo() const { return simbolo; }
     std::string getTipo() const { return tipo; }
 
-    virtual void avancaInstante(Jardineiro* jardineiro) {}
+    virtual bool avancaInstante(Jardineiro* jardineiro, Solo* solo) { return false; }
 };
 #endif //TRABALHO_PRATICO_FERRAMENTA_H

@@ -32,14 +32,14 @@ void ComandoLPlantas::executa(Jardim *jardim, const std::vector<std::string>& ar
                 char linhaLetra= 'a' + i;
                 char colunaLetra= 'a' + j;
 
-                std::cout<<"Planta: "<<planta->getEspecie()<<" na posicao: "<<linhaLetra <<colunaLetra<<"\n";
-                std::cout<<"Saude: "<<planta->getSaude();
-                std::cout<<"Agua: "<<planta->getAgua();
-                std::cout<<"Nutrientes: "<<planta->getNutrientes();
+                std::cout<<"Planta: "<<planta->getEspecie()<<" na posicao: "<<linhaLetra <<colunaLetra<<";\n";
+                std::cout<<"Saude: "<<planta->getSaude()<<" ";
+                std::cout<<"Agua: "<<planta->getAgua()<<" ;";
+                std::cout<<"Nutrientes: "<<planta->getNutrientes()<<" ;";
                 std::cout<<"\n";
-                std::cout<<"Solo: \n";
-                std::cout<<"Agua: "<<solo->getAgua();
-                std::cout<<"Nutrientes: " <<solo->getNutrientes();
+                std::cout<<"Solo: ";
+                std::cout<<"Agua: "<<solo->getAgua()<<" ;";
+                std::cout<<"Nutrientes: " <<solo->getNutrientes()<<" ;\n";
             }
         }
     }

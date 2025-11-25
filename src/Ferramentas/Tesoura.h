@@ -12,7 +12,7 @@ class Tesoura : public Ferramenta {
 public:
     Tesoura();
 
-    void avancaInstante(Jardineiro* jardineiro);
+    bool avancaInstante(Jardineiro* jardineiro, Solo* solo) override;
 };
 
 

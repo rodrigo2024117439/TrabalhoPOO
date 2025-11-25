@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Interface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Jardim.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Solo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Jardineiro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\Planta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\Ferramenta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\Cacto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\Roseira.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\PlantaExotica.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\ErvaDaninha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\Regador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\Adubo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\Tesoura.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\FerramentaZ.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comando.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Jardineiro\ComandoEntra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Jardineiro\ComandoSai.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Plantas\ComandoLPlantas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Jardineiro\ComandoColhe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_mover\ComandoCima.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_mover\ComandoBaixo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_mover\ComandoEsq.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_mover\ComandoDir.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Plantas\ComandoPlantar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Plantas\ComandoLPlantaEsp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoAvanca.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoLArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Jardim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Solo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Jardineiro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\Planta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\Ferramenta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\Cacto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\Roseira.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\PlantaExotica.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Plantas\ErvaDaninha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\Regador.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\Adubo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\Tesoura.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Ferramentas\FerramentaZ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comando.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Jardineiro\ComandoEntra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Jardineiro\ComandoSai.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Plantas\ComandoLPlantas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Jardineiro\ComandoColhe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_mover\ComandoCima.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_mover\ComandoBaixo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_mover\ComandoEsq.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_mover\ComandoDir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Plantas\ComandoPlantar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Plantas\ComandoLPlantaEsp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoAvanca.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoLArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Documents\uni\poo\TrabalhoPOO\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3C10E73E-1CB5-3DAE-A4C3-ADCC09C9A87E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DD549433-5FDE-3A71-AB09-B1DB7B34EB99}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -38,7 +38,7 @@ void ComandoLPlantaEsp::executa(Jardim *jardim, const std::vector<std::string> &
     }
 
     Planta *planta= solo->getPlanta();
-    std::cout<<"Detalhes da Planta:";
+    std::cout<<"Detalhes da Planta:\n";
     std::cout<< "Especie: "<<planta->getEspecie()<<"\n";
     std::cout<<"Agua: "<<planta->getAgua()<<"\n";
     std::cout<<"Nutrientes: "<<planta->getNutrientes()<<"\n";

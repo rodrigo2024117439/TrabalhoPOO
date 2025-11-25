@@ -13,6 +13,7 @@
 #include "Comandos/Comandos_mover/ComandoDir.h"
 #include "Comandos/Comandos_Plantas/ComandoPlantar.h"
 #include "Comandos/Comandos_Plantas/ComandoLPlantaEsp.h"
+#include "Comandos/ComandoLArea.h"
 #include "Comandos/ComandoAvanca.h"
 
 
@@ -27,6 +28,7 @@ Interface::Interface() : meuJardim(nullptr) {
     listaComandos["d"] = new ComandoDir();
     listaComandos["planta"] = new ComandoPlantar();
     listaComandos["lplanta"] = new ComandoLPlantaEsp();
+    listaComandos["larea"] = new ComandoLArea();
     listaComandos["avanca"] = new ComandoAvanca();
 }
 

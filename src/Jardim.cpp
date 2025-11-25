@@ -70,7 +70,10 @@ void Jardim::avancaUMinstante() {
                 planta->avancaInstante(solo, this, i, j);
 
                 if (planta->getSaude() <= 0) {
-                    std::cout << "A planta " << planta->getEspecie() << "morreu em " << i << "," << j << "\n";
+                    char letraLinha = 'a' + i;
+                    char letraColuna = 'a' + j;
+
+                    std::cout << "A planta " << planta->getEspecie() << " morreu na posicao " << letraLinha << letraColuna << "\n";
                     solo->setPlanta(nullptr);
                 }
             }
