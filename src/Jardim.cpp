@@ -6,6 +6,7 @@
 #include <iostream>
 #include <ctime>
 #include "Plantas/Planta.h"
+#include "Ferramentas/FerramentaZ.h"
 
 Jardim::Jardim(int lin, int col): linhas(lin), colunas (col) {
     static bool seed_set = false;
@@ -59,8 +60,6 @@ Solo *Jardim::getSolo(int lin, int col) const {
     return nullptr;
 }
 
-
-
 void Jardim::avancaUMinstante() {
     for (int i=0; i< linhas; i++) {
         for (int j=0; j< colunas; j++) {
@@ -81,8 +80,24 @@ void Jardim::avancaUMinstante() {
     }
 
     if (meuJardineiro->estaNoJardim()) {
-        //logica para as ferramentas, mas quero primeiro fazer os outros codigos para elas
+        int l = meuJardineiro->getLin();
+    int c = meuJardineiro->getCol();
+    Solo* soloAtual = getSolo(l, c);
+
+    //Obter ferramenta da mão
+    Ferramenta* ferramenta = meuJardineiro->getFerramentaNaMao();
+
+    //Usar ferramenta
+    if (ferramenta != nullptr) {
+        // avancaInstante retorna true se a ferramenta partiu
+        bool quebrou = ferramenta->avancaInstante(meuJardineiro, soloAtual);
+        
+        if (quebrou) {
+            meuJardineiro->removerFerramentaPartida();
+        }
     }
-    meuJardineiro->resetContadoresTurno();
 }
+meuJardineiro->resetContadoresTurno();
+}
+
 

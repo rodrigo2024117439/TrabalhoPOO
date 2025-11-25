@@ -40,5 +40,12 @@ class Jardineiro {
     void entrarSair();
     void plantar();
     void colher();
+
+    Ferramenta* getFerramentaNaMao() const { return ferramentaNaMao; }
+    bool equiparFerramenta(int index);
+    void desequiparFerramenta();
+    bool adicionarFerramenta(Ferramenta* f);
+    void removerFerramentaPartida();
+    std::string getInventarioString() const;
 };
 #endif //TRABALHO_PRATICO_JARDINEIRO_H

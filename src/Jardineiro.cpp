@@ -5,6 +5,7 @@
 #include "Jardineiro.h"
 #include "Jardineiro.h"
 #include "Settings.h"
+#include <sstream>
 
 Jardineiro::Jardineiro()
     : lin(-1), col(-1), noJardim(false), ferramentaNaMao(nullptr),
@@ -14,11 +15,12 @@ Jardineiro::Jardineiro()
 
 Jardineiro::~Jardineiro() {
 
-    delete ferramentaNaMao;
+    ferramentaNaMao = nullptr;
 
     for (Ferramenta* f : inventario) {
         delete f;
     }
+    inventario.clear();
 }
 
 bool Jardineiro::podeMover() const {
@@ -45,3 +47,54 @@ void Jardineiro::mover() { movimentosTurno++; }
 void Jardineiro::entrarSair() { entradasSaidasTurno++; }
 void Jardineiro::plantar() { plantacoesTurno++; }
 void Jardineiro::colher() { colheitasTurno++; }
+
+bool Jardineiro::adicionarFerramenta(Ferramenta* f) {
+    if (f == nullptr) return false;
+    inventario.push_back(f);
+    return true;
+}
+
+bool Jardineiro::equiparFerramenta(int index) {
+    if (index >= 0 && index < inventario.size()) {
+        ferramentaNaMao = inventario[index];
+        return true;
+    }
+    return false;
+}
+
+void Jardineiro::desequiparFerramenta() {
+    ferramentaNaMao = nullptr;
+}
+
+void Jardineiro::removerFerramentaPartida() {
+    if (ferramentaNaMao == nullptr) return;
+
+    // Procura a ferramenta partida no inventário para a apagar
+    for (auto it = inventario.begin(); it != inventario.end(); ++it) {
+        if (*it == ferramentaNaMao) {
+            delete *it; // Apaga da memória
+            inventario.erase(it); // Remove do vetor
+            break;
+        }
+    }
+    ferramentaNaMao = nullptr;
+}
+
+std::string Jardineiro::getInventarioString() const {
+    std::stringstream ss;
+    ss << "Inventario do Jardineiro:\n";
+    if (inventario.empty()) {
+        ss << "  (Vazio)\n";
+    } else {
+        for (size_t i = 0; i < inventario.size(); ++i) {
+            ss << "  [" << i << "] " << inventario[i]->getTipo() 
+               << " (Serie: " << inventario[i]->getNumSerie() << ")";
+            
+            if (inventario[i] == ferramentaNaMao) {
+                ss << " <--- NA MAO";
+            }
+            ss << "\n";
+        }
+    }
+    return ss.str();
+}
