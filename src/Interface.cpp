@@ -19,6 +19,7 @@
 #include "Comandos/Comandos_Ferramentas/ComandoIFerr.h"
 #include "Comandos/Comandos_Ferramentas/ComandoPega.h"
 #include "Comandos/Comandos_Ferramentas/ComandoLarga.h"
+#include "Comandos/ComandoCompra.h"
 
 
 Interface::Interface() : meuJardim(nullptr) {
@@ -37,6 +38,7 @@ Interface::Interface() : meuJardim(nullptr) {
     listaComandos["iferr"] = new ComandoIFerr();
     listaComandos["pega"] = new ComandoPega();
     listaComandos["larga"] = new ComandoLarga();
+    listaComandos["compra"] = new ComandoCompra();
 }
 
 Interface::~Interface() {
