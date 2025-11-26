@@ -79,4 +79,6 @@ add_executable(Trabalho_Pratico
         src/Comandos/Comandos_Ferramentas/ComandoPega.h
         src/Comandos/Comandos_Ferramentas/ComandoLarga.cpp
         src/Comandos/Comandos_Ferramentas/ComandoLarga.h
+        src/Comandos/ComandoCompra.cpp
+        src/Comandos/ComandoCompra.h
 )

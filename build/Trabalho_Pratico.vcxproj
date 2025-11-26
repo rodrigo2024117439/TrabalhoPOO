@@ -412,6 +412,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoPega.h" />
     <ClCompile Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoLarga.cpp" />
     <ClInclude Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoLarga.h" />
+    <ClCompile Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoCompra.cpp" />
+    <ClInclude Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoCompra.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

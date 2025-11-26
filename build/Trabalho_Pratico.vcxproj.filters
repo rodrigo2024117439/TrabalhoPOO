@@ -97,6 +97,9 @@
     <ClCompile Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoLarga.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoCompra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Parser.h">
@@ -193,6 +196,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\Comandos_Ferramentas\ComandoLarga.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\diogo\Documents\uni\poo\TrabalhoPOO\src\Comandos\ComandoCompra.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
