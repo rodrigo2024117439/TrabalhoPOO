@@ -151,14 +151,41 @@ void Interface::iniciar() {
                         Parser parserFich(linhaFicheiro);
                         std::string cmdFich = parserFich.getNome();
                         
-                        if (cmdFich == "fim") {}
-                        else if (cmdFich == "grava") {}
-                        else if (cmdFich == "recupera") {}
+                        if (cmdFich == "fim") {std::cout << "Comando 'fim' encontrado no ficheiro. A parar execucao do script.\n";
+                            break;}
+                        else if (cmdFich == "grava") {if (parserFich.getNumArgs() != 1) {
+                            std::cout << "Erro (Ficheiro): Uso -> grava <nome>\n";
+                        } else {
+                            std::string nome = parserFich.getArgs()[0];
+                            if (copias.count(nome)) {
+                                delete copias[nome];
+                            }
+                            copias[nome] = new Jardim(*meuJardim);
+                            std::cout << "Jardim gravado (via ficheiro) com o nome '" << nome << "'.\n";
+                        }}
+                        else if (cmdFich == "recupera") {if (parserFich.getNumArgs() != 1) {
+                            std::cout << "Erro (Ficheiro): Uso -> recupera <nome>\n";
+                        } else {
+                            std::string nome = parserFich.getArgs()[0];
+                            if (copias.find(nome) == copias.end()) {
+                                std::cout << "Erro (Ficheiro): Nao existe gravacao com esse nome.\n";
+                            } else {
+                                delete meuJardim;
+                                meuJardim = copias[nome];
+                                copias.erase(nome);
+                                std::cout << "Jardim recuperado para o estado de '" << nome << "'.\n";
+                                meuJardim->printJardim();
+                            }
+                        }
+                    }
                         else if (listaComandos.count(cmdFich)) {
                             listaComandos[cmdFich]->executa(meuJardim, parserFich.getArgs());
                         } 
+                        else {
+                        std::cout << "Comando desconhecido no ficheiro: " << cmdFich << "\n";
                     }
-                    ficheiro.close();
+                }
+                ficheiro.close();
                 }
             }
         }

@@ -12,9 +12,8 @@
 
 class Interface {
     Jardim* meuJardim;
-    std::map<std::string, Jardim*> copias;
-
     std::map<std::string, Comandos*> listaComandos;
+    std::map<std::string, Jardim*> copias;
 
 public:
     Interface();
