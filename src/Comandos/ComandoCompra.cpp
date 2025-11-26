@@ -1,10 +1,10 @@
 #include "ComandoCompra.h"
 #include "../Jardim.h"
 #include "../Jardineiro.h"
-#include "../../Ferramentas/Regador.h"
-#include "../../Ferramentas/Adubo.h"
-#include "../../Ferramentas/Tesoura.h"
-#include "../../Ferramentas/FerramentaZ.h"
+#include "../Ferramentas/Regador.h"
+#include "../Ferramentas/Adubo.h"
+#include "../Ferramentas/Tesoura.h"
+#include "../Ferramentas/FerramentaZ.h"
 #include <iostream>
 
 void ComandoCompra::executa(Jardim* jardim, const std::vector<std::string>& args) {
@@ -20,7 +20,7 @@ void ComandoCompra::executa(Jardim* jardim, const std::vector<std::string>& args
         case 'g': nova = new Regador(); break;
         case 'a': nova = new Adubo(); break;
         case 't': nova = new Tesoura(); break;
-        case 'z': nova = new FerramentaZ(); break;
+        case 'z': nova = new Triturador(); break;
         default:
             std::cout << "Erro: Tipo de ferramenta desconhecido.\n";
             return;
