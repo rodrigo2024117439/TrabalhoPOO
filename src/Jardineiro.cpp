@@ -1,8 +1,6 @@
 //
 // Created by Rodrigo on 23/10/2025.
 //
-
-#include "Jardineiro.h"
 #include "Jardineiro.h"
 #include "Settings.h"
 #include <sstream>
@@ -97,4 +95,25 @@ std::string Jardineiro::getInventarioString() const {
         }
     }
     return ss.str();
+}
+
+Jardineiro::Jardineiro(const Jardineiro &outro) {
+    this->lin = outro.lin;
+    this->col = outro.col;
+    this->noJardim = outro.noJardim;
+    
+    this->movimentosTurno = outro.movimentosTurno;
+    this->entradasSaidasTurno = outro.entradasSaidasTurno;
+    this->plantacoesTurno = outro.plantacoesTurno;
+    this->colheitasTurno = outro.colheitasTurno;
+
+    this->ferramentaNaMao = nullptr;
+
+    for (Ferramenta* f : outro.inventario) {
+        Ferramenta* copia = f->duplicar();
+        inventario.push_back(copia);
+        if (f == outro.ferramentaNaMao) {
+            ferramentaNaMao = copia;
+        }
+    }
 }

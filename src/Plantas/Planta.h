@@ -16,6 +16,7 @@ protected:
     int nutrientes;
     char simbolo;
     std::string especie;
+    bool processada;
 
     public:
     Planta(char s, std::string esp, int h, int a, int n);
@@ -23,6 +24,8 @@ protected:
     virtual ~Planta() = default;
     virtual void avancaInstante(Solo* solo, Jardim* jardim, int l, int c) = 0;
     virtual Planta* duplicar() const = 0;
+    bool foiProcessadaEsteTurno() const { return processada; }
+    void setProcessadaEsteTurno(bool estado) { processada = estado; }
 
     char getSimbolo() const  {return simbolo; }
     std::string getEspecie() const { return especie; }

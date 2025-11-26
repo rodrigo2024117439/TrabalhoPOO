@@ -151,7 +151,10 @@ void Interface::iniciar() {
                         Parser parserFich(linhaFicheiro);
                         std::string cmdFich = parserFich.getNome();
                         
-                        if (listaComandos.count(cmdFich)) {
+                        if (cmdFich == "fim") {}
+                        else if (cmdFich == "grava") {}
+                        else if (cmdFich == "recupera") {}
+                        else if (listaComandos.count(cmdFich)) {
                             listaComandos[cmdFich]->executa(meuJardim, parserFich.getArgs());
                         } 
                     }

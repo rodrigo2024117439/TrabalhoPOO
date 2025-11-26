@@ -21,6 +21,7 @@ class Jardineiro {
 
     public:
     Jardineiro();
+    Jardineiro(const Jardineiro &outro);
     ~Jardineiro();
 
     void setPos(int l, int c) { lin = l; col = c; }

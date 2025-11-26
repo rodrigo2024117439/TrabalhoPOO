@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comandos_mover\\comandocima.cpp",
+        "Source": "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comandos_ferramentas\\comandoiferr.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comandos_mover\\comandocima.h",
+            "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comandos_ferramentas\\comandoiferr.h",
             "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo\\src\\comandos\\comando.h",
             "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo\\src\\jardim.h",
             "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo\\src\\jardineiro.h",

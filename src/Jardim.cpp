@@ -95,6 +95,8 @@ void Jardim::avancaUMinstante() {
         for (int j = 0; j < colunas; j++) {
             if (getSolo(i,j)->getPlanta()) 
                 getSolo(i,j)->getPlanta()->setProcessadaEsteTurno(false);
+        }
+    }
 
     if (meuJardineiro->estaNoJardim()) {
         int l = meuJardineiro->getLin();
@@ -109,9 +111,9 @@ void Jardim::avancaUMinstante() {
             if (quebrou) {
                 meuJardineiro->removerFerramentaPartida();
             }
-            meuJardineiro->resetContadoresTurno();
         }
     }
+    meuJardineiro->resetContadoresTurno();
 }
 
 void Jardim::spawnFerramentaAleatoria() {
@@ -160,7 +162,7 @@ void Jardim::verificarFerramentasNoChao() {
             
             spawnFerramentaAleatoria();
         } else {
-            std::cout << ">>> Encontraste uma ferramenta, mas a mochila pode estar cheia!\n";
+            std::cout << ">>> Encontraste uma ferramenta, mas a mochila pode estar cheia.\n";
         }
     }
 }

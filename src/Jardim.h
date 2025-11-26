@@ -16,7 +16,8 @@ class Jardim {
 
 public:
     Jardim(int lin, int col);
-    ~Jardim(); //destrutor
+    Jardim(const Jardim &outro);
+    ~Jardim();
     void printJardim() const;
 
 
