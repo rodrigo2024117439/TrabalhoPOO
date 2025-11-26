@@ -9,5 +9,7 @@ class Adubo: public Ferramenta {
 public:
     Adubo();
     bool avancaInstante(Jardineiro* jardineiro, Solo* solo) override;
+
+    Ferramenta* duplicar() const override { return new Adubo(*this); }
 };
 #endif //TRABALHO_PRATICO_ADUBO_H

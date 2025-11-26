@@ -15,6 +15,8 @@ public:
     int getAguaRestante() const { return aguaRestante; }
 
     bool avancaInstante(Jardineiro* jardineiro, Solo* solo) override;
+
+    Ferramenta* duplicar() const override { return new Regador(*this); }
 };
 
 #endif

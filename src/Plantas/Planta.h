@@ -22,6 +22,7 @@ protected:
 
     virtual ~Planta() = default;
     virtual void avancaInstante(Solo* solo, Jardim* jardim, int l, int c) = 0;
+    virtual Planta* duplicar() const = 0;
 
     char getSimbolo() const  {return simbolo; }
     std::string getEspecie() const { return especie; }

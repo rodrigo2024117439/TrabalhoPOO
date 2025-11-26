@@ -13,6 +13,8 @@ public:
     Tesoura();
 
     bool avancaInstante(Jardineiro* jardineiro, Solo* solo) override;
+
+    Ferramenta* duplicar() const override { return new Tesoura(*this); }
 };
 
 

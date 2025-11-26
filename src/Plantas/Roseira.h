@@ -16,7 +16,7 @@ public:
     Roseira();
 
     void avancaInstante(Solo* solo, Jardim* jardim, int l, int c) override;
-
+    Planta* duplicar() const override { return new Roseira(*this); }
 
 };
 #endif //TRABALHO_PRATICO_ROSEIRA_H

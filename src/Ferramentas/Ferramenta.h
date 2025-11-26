@@ -28,5 +28,7 @@ public:
     std::string getTipo() const { return tipo; }
 
     virtual bool avancaInstante(Jardineiro* jardineiro, Solo* solo) { return false; }
+
+    virtual Ferramenta* duplicar() const = 0;
 };
 #endif //TRABALHO_PRATICO_FERRAMENTA_H

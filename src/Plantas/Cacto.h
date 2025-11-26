@@ -17,6 +17,7 @@ public:
     Cacto();
 
     void avancaInstante(Solo* solo, Jardim* jardim, int l, int c) override;
+    Planta* duplicar() const override { return new Cacto(*this); }
 };
 
 #endif

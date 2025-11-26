@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Jardim.h"
-
+#include <fstream>
 #include "Parser.h"
 #include "Comandos/Comandos_Jardineiro/ComandoEntra.h"
 #include "Comandos/Comandos_Jardineiro/ComandoSai.h"
@@ -103,6 +103,61 @@ void Interface::iniciar() {
 
         else if (!nomeCmd.empty()) {
             std::cout << "[ERRO] Comando '" << nomeCmd << "' invalido ou desconhecido.\n";
+        }
+        else if (nomeCmd == "grava") {
+            if (parser.getNumArgs() != 1) {
+                std::cout << "Erro: Uso -> grava <nome>\n";
+            } else {
+                std::string nome = parser.getArgs()[0];
+                if (copias.count(nome)) {
+                    delete copias[nome];
+                }
+                copias[nome] = new Jardim(*meuJardim);
+                std::cout << "Jardim gravado com o nome '" << nome << "'.\n";
+            }
+        }
+        else if (nomeCmd == "recupera") {
+            if (parser.getNumArgs() != 1) {
+                std::cout << "Erro: Uso -> recupera <nome>\n";
+            } else {
+                std::string nome = parser.getArgs()[0];
+                if (copias.find(nome) == copias.end()) {
+                    std::cout << "Erro: Nao existe gravacao com esse nome.\n";
+                } else {
+                    delete meuJardim;
+                    meuJardim = copias[nome];
+                    copias.erase(nome);
+                    std::cout << "Jardim recuperado para o estado de '" << nome << "'.\n";
+                    meuJardim->printJardim();
+                }
+            }
+        }
+        else if (nomeCmd == "executa") {
+            if (parser.getNumArgs() != 1) {
+                std::cout << "Erro: Uso -> executa <nome_ficheiro>\n";
+            } else {
+                std::string nomeFich = parser.getArgs()[0];
+                std::ifstream ficheiro(nomeFich);
+                
+                if (!ficheiro.is_open()) {
+                    std::cout << "Erro: Nao foi possivel abrir o ficheiro " << nomeFich << "\n";
+                } else {
+                    std::string linhaFicheiro;
+                    while (std::getline(ficheiro, linhaFicheiro)) {
+                        if (linhaFicheiro.empty()) continue;
+                        
+                        std::cout << ">> Executando do ficheiro: " << linhaFicheiro << "\n";
+                        
+                        Parser parserFich(linhaFicheiro);
+                        std::string cmdFich = parserFich.getNome();
+                        
+                        if (listaComandos.count(cmdFich)) {
+                            listaComandos[cmdFich]->executa(meuJardim, parserFich.getArgs());
+                        } 
+                    }
+                    ficheiro.close();
+                }
+            }
         }
     }
 }

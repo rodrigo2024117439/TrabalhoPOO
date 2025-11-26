@@ -7,6 +7,8 @@ public:
     PlantaExotica();
 
     void avancaInstante(Solo *solo, Jardim* jardim, int l, int c) override;
+    Planta* duplicar() const override { return new PlantaExotica(*this); }
+
 };
 
 #endif

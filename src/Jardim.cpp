@@ -70,12 +70,16 @@ Solo *Jardim::getSolo(int lin, int col) const {
 }
 
 void Jardim::avancaUMinstante() {
+    
+    verificarFerramentasNoChao();
+
     for (int i = 0; i < linhas; i++) {
         for (int j = 0; j < colunas; j++) {
             Solo *solo = getSolo(i, j);
             Planta *planta = solo->getPlanta();
-            if (planta != nullptr) {
+            if (planta != nullptr && !planta->foiProcessadaEsteTurno()) {
                 planta->avancaInstante(solo, this, i, j);
+                planta->setProcessadaEsteTurno(true);
 
                 if (planta->getSaude() <= 0) {
                     char letraLinha = 'A' + i;
@@ -86,6 +90,11 @@ void Jardim::avancaUMinstante() {
             }
         }
     }
+
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            if (getSolo(i,j)->getPlanta()) 
+                getSolo(i,j)->getPlanta()->setProcessadaEsteTurno(false);
 
     if (meuJardineiro->estaNoJardim()) {
         int l = meuJardineiro->getLin();
@@ -100,9 +109,9 @@ void Jardim::avancaUMinstante() {
             if (quebrou) {
                 meuJardineiro->removerFerramentaPartida();
             }
+            meuJardineiro->resetContadoresTurno();
         }
     }
-    meuJardineiro->resetContadoresTurno();
 }
 
 void Jardim::spawnFerramentaAleatoria() {
@@ -154,4 +163,28 @@ void Jardim::verificarFerramentasNoChao() {
             std::cout << ">>> Encontraste uma ferramenta, mas a mochila pode estar cheia!\n";
         }
     }
+}
+
+Jardim::Jardim(const Jardim &outro) {
+    linhas = outro.linhas;
+    colunas = outro.colunas;
+    
+    area_solo = new Solo*[linhas];
+    for (int i = 0; i < linhas; i++) {
+        area_solo[i] = new Solo[colunas];
+        for (int j = 0; j < colunas; j++) {
+            area_solo[i][j] = outro.area_solo[i][j]; 
+            
+            if (outro.area_solo[i][j].getPlanta() != nullptr) {
+                area_solo[i][j].setPlanta(outro.area_solo[i][j].getPlanta()->duplicar());
+            }
+            
+            if (outro.area_solo[i][j].getFerramenta() != nullptr) {
+                area_solo[i][j].setFerramenta(outro.area_solo[i][j].getFerramenta()->duplicar());
+            }
+        }
+    }
+
+    // Copiar o Jardineiro
+    meuJardineiro = new Jardineiro(*outro.meuJardineiro);
 }
