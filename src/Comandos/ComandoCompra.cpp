@@ -20,7 +20,7 @@ void ComandoCompra::executa(Jardim* jardim, const std::vector<std::string>& args
         case 'g': nova = new Regador(); break;
         case 'a': nova = new Adubo(); break;
         case 't': nova = new Tesoura(); break;
-        case 'z': nova = new Triturador(); break;
+        case 'z': nova = new FerramentaZ(); break;
         default:
             std::cout << "Erro: Tipo de ferramenta desconhecido.\n";
             return;

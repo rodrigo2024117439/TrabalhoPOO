@@ -3,10 +3,10 @@
 #include "../Plantas/Planta.h"
 #include <iostream>
 
-Triturador::Triturador() : Ferramenta('z', "Triturador Organico"), usosRestantes(5) {
+FerramentaZ::FerramentaZ() : Ferramenta('z', "Triturador"), usosRestantes(5) {
 }
 
-bool Triturador::avancaInstante(Jardineiro* jardineiro, Solo* solo) {
+bool FerramentaZ::avancaInstante(Jardineiro* jardineiro, Solo* solo) {
     Planta* planta = solo->getPlanta();
 
     if (planta != nullptr) {
@@ -29,7 +29,7 @@ bool Triturador::avancaInstante(Jardineiro* jardineiro, Solo* solo) {
     }
 
     if (usosRestantes <= 0) {
-        std::cout << "A ferramenta partiu-se!\n";
+        std::cout << "A ferramenta partiu-se.\n";
         return true;
     }
 

@@ -3,14 +3,14 @@
 
 #include "Ferramenta.h"
 
-class Triturador : public Ferramenta {
+class FerramentaZ : public Ferramenta {
     int usosRestantes;
 public:
-    Triturador();
+    FerramentaZ();
     
     bool avancaInstante(Jardineiro* jardineiro, Solo* solo) override;
 
-    Ferramenta* duplicar() const override { return new Triturador(*this); }
+    Ferramenta* duplicar() const override { return new FerramentaZ(*this); }
 };
 
 #endif //TRABALHO_PRATICO_FERRAMENTAZ_H

@@ -134,7 +134,7 @@ void Jardim::spawnFerramentaAleatoria() {
                 case 0: nova = new Regador(); break;
                 case 1: nova = new Adubo(); break;
                 case 2: nova = new Tesoura(); break;
-                case 3: nova = new Triturador(); break;
+                case 3: nova = new FerramentaZ(); break;
             }
 
             if (nova != nullptr) {
