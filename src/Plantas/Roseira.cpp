@@ -21,8 +21,8 @@ void Roseira::avancaInstante(Solo* solo, Jardim* jardim, int l, int c) {
     int aguaDoSolo = solo ->getAgua();
     int nutriDoSolo = solo->getNutrientes();
 
-    int absorverAgua = std::min(aguaDoSolo, Settings::Roseira::absorcao_agua);
-    int absorverNutri = std::min(nutriDoSolo, Settings::Roseira::absorcao_nutrientes);
+    int absorverAgua = std::min(aguaDoSolo, (int)Settings::Roseira::absorcao_agua);
+    int absorverNutri = std::min(nutriDoSolo, (int)Settings::Roseira::absorcao_nutrientes);
 
     // Atualiza a planta
     this->agua += absorverAgua;

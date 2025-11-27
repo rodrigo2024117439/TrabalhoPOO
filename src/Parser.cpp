@@ -3,7 +3,6 @@
 //
 
 #include "Parser.h"
-#include <iostream>
 #include <sstream>
 
 #include "Jardim.h"

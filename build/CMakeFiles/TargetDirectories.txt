@@ -1,3 +1,0 @@
-C:/Users/diogo/Documents/uni/poo/TrabalhoPOO/build/CMakeFiles/Trabalho_Pratico.dir
-C:/Users/diogo/Documents/uni/poo/TrabalhoPOO/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/diogo/Documents/uni/poo/TrabalhoPOO/build/CMakeFiles/ZERO_CHECK.dir

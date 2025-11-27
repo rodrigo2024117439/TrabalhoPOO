@@ -20,6 +20,7 @@
 #include "Comandos/Comandos_Ferramentas/ComandoPega.h"
 #include "Comandos/Comandos_Ferramentas/ComandoLarga.h"
 #include "Comandos/ComandoCompra.h"
+#include "Comandos/ComandoLSolo.h"
 
 
 Interface::Interface() : meuJardim(nullptr) {
@@ -39,6 +40,7 @@ Interface::Interface() : meuJardim(nullptr) {
     listaComandos["pega"] = new ComandoPega();
     listaComandos["larga"] = new ComandoLarga();
     listaComandos["compra"] = new ComandoCompra();
+    listaComandos["lsolo"] = new ComandoLSolo();
 }
 
 Interface::~Interface() {
