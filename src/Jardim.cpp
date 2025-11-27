@@ -175,7 +175,8 @@ Jardim::Jardim(const Jardim &outro) {
     for (int i = 0; i < linhas; i++) {
         area_solo[i] = new Solo[colunas];
         for (int j = 0; j < colunas; j++) {
-            area_solo[i][j] = outro.area_solo[i][j]; 
+            area_solo[i][j].setAgua(outro.area_solo[i][j].getAgua());
+            area_solo[i][j].setNutrientes(outro.area_solo[i][j].getNutrientes());
             
             if (outro.area_solo[i][j].getPlanta() != nullptr) {
                 area_solo[i][j].setPlanta(outro.area_solo[i][j].getPlanta()->duplicar());
@@ -186,7 +187,5 @@ Jardim::Jardim(const Jardim &outro) {
             }
         }
     }
-
-    // Copiar o Jardineiro
     meuJardineiro = new Jardineiro(*outro.meuJardineiro);
 }

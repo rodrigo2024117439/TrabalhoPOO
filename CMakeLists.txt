@@ -81,6 +81,8 @@ add_executable(Trabalho_Pratico
         src/Comandos/Comandos_Ferramentas/ComandoLarga.h
         src/Comandos/ComandoCompra.cpp
         src/Comandos/ComandoCompra.h
+
         src/Comandos/ComandoLSolo.cpp
         src/Comandos/ComandoLSolo.h
+
 )
