@@ -125,7 +125,7 @@ void Jardim::spawnFerramentaAleatoria() {
         int c = rand() % colunas;
         Solo* solo = getSolo(l, c);
 
-        if (solo->getFerramenta() == nullptr && solo->getPlanta() == nullptr) {
+        if (solo->getFerramenta() == nullptr ) {
             
             int tipo = rand() % 4;
             Ferramenta* nova = nullptr;
