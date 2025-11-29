@@ -46,7 +46,7 @@ add_executable(Trabalho_Pratico
         src/Ferramentas/FerramentaZ.cpp
         src/Ferramentas/FerramentaZ.h
 
-        #Classes para os comandos
+        #Classes e headers para os comandos
         src/Comandos/Comando.cpp
         src/Comandos/Comando.h
         src/Comandos/Comandos_Jardineiro/ComandoEntra.cpp

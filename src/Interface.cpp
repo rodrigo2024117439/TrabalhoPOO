@@ -1,20 +1,3 @@
-/*
- ==================================================================================
-    TODO LIST - PARA TERMINAR O TRABALHO (META 2)
- ==================================================================================
-
- 1. COMANDO 'APAGA' (Falta Implementar):
-    - O código já existe (ver no chat), falta colar no 'Interface.cpp'.
-    - Tem de ser adicionado em 2 sítios:
-      a) No loop principal (para o utilizador apagar saves).
-      b) Dentro do loop do comando 'executa' (para os scripts apagarem saves).
-
- 2. COMANDO 'LSOLO' (Falta Criar):
-    - Este comando é obrigatório e ainda não existe.
-    - Objetivo: Mostrar detalhes (água, nutrientes) de uma posição específica (l, c).
-    - Ação: Criar classe 'ComandoLSolo' e adicionar ao mapa no 'Interface.cpp'.
-    */
-
 #include "Interface.h"
 #include <iostream>
 #include <string>
@@ -63,7 +46,7 @@ Interface::Interface() : meuJardim(nullptr) {
 Interface::~Interface() {
     delete meuJardim;
 
-    for (auto const& [nome, comando] : listaComandos) {
+    for (auto const &[nome, comando]: listaComandos) {
         delete comando;
     }
 }
@@ -78,17 +61,13 @@ void Interface::iniciar() {
         std::cout << "> ";
         std::getline(std::cin, linha);
 
-
-
         Parser parser(linha);
         std::string nomeCmd = parser.getNome();
 
         if (nomeCmd == "fim") {
             std::cout << "Programa terminado.\n";
             break;
-        }
-
-        else if (nomeCmd == "jardim") {
+        } else if (nomeCmd == "jardim") {
             if (meuJardim != nullptr) {
                 std::cout << "ERRO- O jardim ja foi criado! Nao pode ser recriado.\n";
             } else if (parser.getNumArgs() != 2) {
@@ -110,9 +89,7 @@ void Interface::iniciar() {
                     std::cout << "ERRO- Linhas e colunas devem ser numeros inteiros.\n";
                 }
             }
-        }
-
-        else if (nomeCmd == "grava") {
+        } else if (nomeCmd == "grava") {
             if (meuJardim == nullptr) {
                 std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
             } else if (parser.getNumArgs() != 1) {
@@ -125,8 +102,7 @@ void Interface::iniciar() {
                 copias[nome] = new Jardim(*meuJardim);
                 std::cout << "Jardim gravado com o nome '" << nome << "'.\n";
             }
-        }
-        else if (nomeCmd == "recupera") {
+        } else if (nomeCmd == "recupera") {
             if (meuJardim == nullptr) {
                 std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
             } else if (parser.getNumArgs() != 1) {
@@ -143,8 +119,22 @@ void Interface::iniciar() {
                     meuJardim->printJardim();
                 }
             }
-        }
-        else if (nomeCmd == "executa") {
+        } else if (nomeCmd == "apaga") {
+            if (parser.getNumArgs() != 1) {
+                std::cout << "ERRO: Uso -> apaga <nome>\n";
+            } else {
+                std::string nome = parser.getArgs()[0];
+
+                auto iter = copias.find(nome);
+                if (iter == copias.end()) {
+                    std::cout << "ERRO: esse save nao existe\n";
+                } else {
+                    delete iter->second;
+                    copias.erase(iter);
+                    std::cout << "Gravacao " << nome << " apagada\n";
+                }
+            }
+        } else if (nomeCmd == "executa") {
             if (meuJardim == nullptr) {
                 std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
             } else if (parser.getNumArgs() != 1) {
@@ -152,24 +142,24 @@ void Interface::iniciar() {
             } else {
                 std::string nomeFich = parser.getArgs()[0];
                 std::ifstream ficheiro(nomeFich);
-                
+
                 if (!ficheiro.is_open()) {
                     std::cout << "Erro: Nao foi possivel abrir o ficheiro " << nomeFich << "\n";
                 } else {
                     std::string linhaFicheiro;
                     while (std::getline(ficheiro, linhaFicheiro)) {
                         if (linhaFicheiro.empty()) continue;
-                        
+
                         std::cout << ">> Executando do ficheiro: " << linhaFicheiro << "\n";
-                        
+
                         Parser parserFich(linhaFicheiro);
                         std::string cmdFich = parserFich.getNome();
-                        
+
                         if (cmdFich == "fim") {
                             std::cout << "Comando 'fim' encontrado no ficheiro. A parar execucao do script.\n";
                             break;
                         }
-                        else if (cmdFich == "grava") {
+                        if (cmdFich == "grava") {
                             if (parserFich.getNumArgs() != 1) {
                                 std::cout << "Erro (Ficheiro): Uso -> grava <nome>\n";
                             } else {
@@ -180,8 +170,7 @@ void Interface::iniciar() {
                                 copias[nome] = new Jardim(*meuJardim);
                                 std::cout << "Jardim gravado (via ficheiro) com o nome '" << nome << "'.\n";
                             }
-                        }
-                        else if (cmdFich == "recupera") {
+                        } else if (cmdFich == "recupera") {
                             if (parserFich.getNumArgs() != 1) {
                                 std::cout << "Erro (Ficheiro): Uso -> recupera <nome>\n";
                             } else {
@@ -196,28 +185,35 @@ void Interface::iniciar() {
                                     meuJardim->printJardim();
                                 }
                             }
-                        }
-                        else if (listaComandos.count(cmdFich)) {
+                        } else if (cmdFich == "apaga") {
+                            if (parserFich.getNumArgs() != 1) {
+                                std::cout << "ERRO: Uso -> apaga <nome>\n";
+                            } else {
+                                std::string nome = parserFich.getArgs()[0];
+
+                                auto iter = copias.find(nome);
+                                if (iter == copias.end()) {
+                                    std::cout << "ERRO: esse save nao existe\n";
+                                } else {
+                                    delete iter->second;
+                                    copias.erase(iter);
+                                    std::cout << "Gravacao " << nome << " apagada\n";
+                                }
+                            }
+                        } else if (listaComandos.count(cmdFich)) {
                             listaComandos[cmdFich]->executa(meuJardim, parserFich.getArgs());
-                        } 
-                        else {
+                        } else {
                             std::cout << "Comando desconhecido no ficheiro: " << cmdFich << "\n";
                         }
                     }
                     ficheiro.close();
                 }
             }
-        }
-
-        else if (meuJardim == nullptr && !nomeCmd.empty()) {
+        } else if (meuJardim == nullptr && !nomeCmd.empty()) {
             std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
-        }
-
-        else if (listaComandos.count(nomeCmd)) {
+        } else if (listaComandos.count(nomeCmd)) {
             listaComandos[nomeCmd]->executa(meuJardim, parser.getArgs());
-        }
-
-        else if (!nomeCmd.empty()) {
+        } else if (!nomeCmd.empty()) {
             std::cout << "[ERRO] Comando '" << nomeCmd << "' invalido ou desconhecido.\n";
         }
     }
