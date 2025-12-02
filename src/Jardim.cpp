@@ -12,6 +12,7 @@
 #include "Ferramentas/Adubo.h"
 #include "Ferramentas/Tesoura.h"
 #include "Ferramentas/FerramentaZ.h"
+#include "Solo.h"
 
 Jardim::Jardim(int lin, int col): linhas(lin), colunas (col) {
     static bool seed_set = false;

@@ -6,7 +6,6 @@
 #define TRABALHO_PRATICO_JARDIM_H
 
 #include "Jardineiro.h"
-#include "Solo.h"
 
 class Jardim {
     int linhas, colunas;
