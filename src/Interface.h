@@ -15,6 +15,8 @@ class Interface {
     std::map<std::string, Comandos*> listaComandos;
     std::map<std::string, Jardim*> copias;
 
+    bool processarComando(const std::string& linha);
+
 public:
     Interface();
     ~Interface();

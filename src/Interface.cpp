@@ -51,6 +51,134 @@ Interface::~Interface() {
     }
 }
 
+
+bool Interface::processarComando(const std::string &linha) {
+    if (linha.empty()) {
+        return true;
+    }
+
+    Parser parser(linha);
+    std::string nomeCmd = parser.getNome();
+    if (nomeCmd == "fim") {
+        return false;
+    }
+    if (nomeCmd == "jardim") {
+        if (meuJardim != nullptr) {
+            std::cout << "ERRO- O jardim ja foi criado! Nao pode ser recriado.\n";
+        } else if (parser.getNumArgs() != 2) {
+            std::cout << "ERRO - Uso: jardim <linhas> <colunas>\n";
+        } else {
+            try {
+                std::vector<std::string> args = parser.getArgs();
+                int lin = std::stoi(args[0]);
+                int col = std::stoi(args[1]);
+
+
+                if (lin < 1 || lin > 26 || col < 1 || col > 26) {
+                    std::cout << "ERRO- O jardim deve ter no maximo 26x26 e no minimo 1x1.\n";
+                } else {
+                    meuJardim = new Jardim(lin, col);
+                    std::cout << "Jardim de " << lin << "x" << col << " criado.\n";
+                    meuJardim->printJardim();
+                }
+            } catch (...) {
+                std::cout << "ERRO- Linhas e colunas devem ser numeros inteiros.\n";
+            }
+        }
+        return true;
+    }
+
+
+    if (nomeCmd == "executa") {
+        if (parser.getNumArgs() != 1) {
+            std::cout << "Erro: Uso -> executa <nome_ficheiro>\n";
+        } else {
+            std::string nomeFich = parser.getArgs()[0];
+            std::ifstream ficheiro(nomeFich);
+
+            if (!ficheiro.is_open()) {
+                std::cout << "Erro: Nao foi possivel abrir o ficheiro " << nomeFich << "\n";
+            } else {
+                std::string linhaFicheiro;
+                while (std::getline(ficheiro, linhaFicheiro)) {
+                    std::cout << ">> " << linhaFicheiro << "\n";
+
+
+                    if (!processarComando(linhaFicheiro)) {
+                        ficheiro.close();
+                        return false;
+                    }
+                }
+                ficheiro.close();
+            }
+        }
+        return true;
+    }
+
+    if (nomeCmd == "grava") {
+        if (meuJardim == nullptr) {
+            std::cout << "ERRO- Crie um jardim primeiro.\n";
+        } else if (parser.getNumArgs() != 1) {
+            std::cout << "Erro: Uso -> grava <nome>\n";
+        } else {
+            std::string nome = parser.getArgs()[0];
+            if (copias.count(nome)) delete copias[nome]; // Evita memory leaks
+            copias[nome] = new Jardim(*meuJardim);
+            std::cout << "Jardim gravado com o nome '" << nome << "'.\n";
+        }
+        return true;
+    }
+
+    if (nomeCmd == "recupera") {
+        if (meuJardim == nullptr) {
+            std::cout << "ERRO- Crie um jardim primeiro.\n";
+        } else if (parser.getNumArgs() != 1) {
+            std::cout << "Erro: Uso -> recupera <nome>\n";
+        } else {
+            std::string nome = parser.getArgs()[0];
+            if (copias.find(nome) == copias.end()) {
+                std::cout << "Erro: Nao existe gravacao com esse nome.\n";
+            } else {
+                delete meuJardim;
+                meuJardim = new Jardim(*copias[nome]); // criar cópia nova
+                std::cout << "Jardim recuperado para o estado de '" << nome << "'.\n";
+                meuJardim->printJardim();
+            }
+        }
+        return true;
+    }
+
+    if (nomeCmd == "apaga") {
+        if (parser.getNumArgs() != 1) {
+            std::cout << "ERRO: Uso -> apaga <nome>\n";
+        } else {
+            std::string nome = parser.getArgs()[0];
+            auto iter = copias.find(nome);
+            if (iter == copias.end()) {
+                std::cout << "ERRO: esse save nao existe\n";
+            } else {
+                delete iter->second;
+                copias.erase(iter);
+                std::cout << "Gravacao " << nome << " apagada\n";
+            }
+        }
+        return true;
+    }
+
+    if (meuJardim == nullptr) {
+        std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
+        return true;
+    }
+
+    if (listaComandos.count(nomeCmd)) {
+        listaComandos[nomeCmd]->executa(meuJardim, parser.getArgs());
+    } else {
+        std::cout << "[ERRO] Comando '" << nomeCmd << "' invalido ou desconhecido.\n";
+    }
+
+    return true;
+}
+
 void Interface::iniciar() {
     std::string linha;
     std::cout << "----> Simulador de Jardim <----\n";
@@ -61,160 +189,9 @@ void Interface::iniciar() {
         std::cout << "> ";
         std::getline(std::cin, linha);
 
-        Parser parser(linha);
-        std::string nomeCmd = parser.getNome();
-
-        if (nomeCmd == "fim") {
+        if (!processarComando(linha)) {
             std::cout << "Programa terminado.\n";
             break;
-        } else if (nomeCmd == "jardim") {
-            if (meuJardim != nullptr) {
-                std::cout << "ERRO- O jardim ja foi criado! Nao pode ser recriado.\n";
-            } else if (parser.getNumArgs() != 2) {
-                std::cout << "ERRO - Uso: jardim <linhas> <colunas>\n";
-            } else {
-                try {
-                    std::vector<std::string> args = parser.getArgs();
-                    int lin = std::stoi(args[0]);
-                    int col = std::stoi(args[1]);
-
-                    if (lin < 1 || lin > 26 || col < 1 || col > 26) {
-                        std::cout << "ERRO- O jardim deve ter no maximo 26x26 e no minimo 1x1.\n";
-                    } else {
-                        meuJardim = new Jardim(lin, col);
-                        std::cout << "Jardim de " << lin << "x" << col << " criado.\n";
-                        meuJardim->printJardim();
-                    }
-                } catch (const std::invalid_argument &e) {
-                    std::cout << "ERRO- Linhas e colunas devem ser numeros inteiros.\n";
-                }
-            }
-        } else if (nomeCmd == "grava") {
-            if (meuJardim == nullptr) {
-                std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
-            } else if (parser.getNumArgs() != 1) {
-                std::cout << "Erro: Uso -> grava <nome>\n";
-            } else {
-                std::string nome = parser.getArgs()[0];
-                if (copias.count(nome)) {
-                    delete copias[nome];
-                }
-                copias[nome] = new Jardim(*meuJardim);
-                std::cout << "Jardim gravado com o nome '" << nome << "'.\n";
-            }
-        } else if (nomeCmd == "recupera") {
-            if (meuJardim == nullptr) {
-                std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
-            } else if (parser.getNumArgs() != 1) {
-                std::cout << "Erro: Uso -> recupera <nome>\n";
-            } else {
-                std::string nome = parser.getArgs()[0];
-                if (copias.find(nome) == copias.end()) {
-                    std::cout << "Erro: Nao existe gravacao com esse nome.\n";
-                } else {
-                    delete meuJardim;
-                    meuJardim = copias[nome];
-                    copias.erase(nome);
-                    std::cout << "Jardim recuperado para o estado de '" << nome << "'.\n";
-                    meuJardim->printJardim();
-                }
-            }
-        } else if (nomeCmd == "apaga") {
-            if (parser.getNumArgs() != 1) {
-                std::cout << "ERRO: Uso -> apaga <nome>\n";
-            } else {
-                std::string nome = parser.getArgs()[0];
-
-                auto iter = copias.find(nome);
-                if (iter == copias.end()) {
-                    std::cout << "ERRO: esse save nao existe\n";
-                } else {
-                    delete iter->second;
-                    copias.erase(iter);
-                    std::cout << "Gravacao " << nome << " apagada\n";
-                }
-            }
-        } else if (nomeCmd == "executa") {
-            if (meuJardim == nullptr) {
-                std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
-            } else if (parser.getNumArgs() != 1) {
-                std::cout << "Erro: Uso -> executa <nome_ficheiro>\n";
-            } else {
-                std::string nomeFich = parser.getArgs()[0];
-                std::ifstream ficheiro(nomeFich);
-
-                if (!ficheiro.is_open()) {
-                    std::cout << "Erro: Nao foi possivel abrir o ficheiro " << nomeFich << "\n";
-                } else {
-                    std::string linhaFicheiro;
-                    while (std::getline(ficheiro, linhaFicheiro)) {
-                        if (linhaFicheiro.empty()) continue;
-
-                        std::cout << ">> Executando do ficheiro: " << linhaFicheiro << "\n";
-
-                        Parser parserFich(linhaFicheiro);
-                        std::string cmdFich = parserFich.getNome();
-
-                        if (cmdFich == "fim") {
-                            std::cout << "Comando 'fim' encontrado no ficheiro. A parar execucao do script.\n";
-                            break;
-                        }
-                        if (cmdFich == "grava") {
-                            if (parserFich.getNumArgs() != 1) {
-                                std::cout << "Erro (Ficheiro): Uso -> grava <nome>\n";
-                            } else {
-                                std::string nome = parserFich.getArgs()[0];
-                                if (copias.count(nome)) {
-                                    delete copias[nome];
-                                }
-                                copias[nome] = new Jardim(*meuJardim);
-                                std::cout << "Jardim gravado (via ficheiro) com o nome '" << nome << "'.\n";
-                            }
-                        } else if (cmdFich == "recupera") {
-                            if (parserFich.getNumArgs() != 1) {
-                                std::cout << "Erro (Ficheiro): Uso -> recupera <nome>\n";
-                            } else {
-                                std::string nome = parserFich.getArgs()[0];
-                                if (copias.find(nome) == copias.end()) {
-                                    std::cout << "Erro (Ficheiro): Nao existe gravacao com esse nome.\n";
-                                } else {
-                                    delete meuJardim;
-                                    meuJardim = copias[nome];
-                                    copias.erase(nome);
-                                    std::cout << "Jardim recuperado para o estado de '" << nome << "'.\n";
-                                    meuJardim->printJardim();
-                                }
-                            }
-                        } else if (cmdFich == "apaga") {
-                            if (parserFich.getNumArgs() != 1) {
-                                std::cout << "ERRO: Uso -> apaga <nome>\n";
-                            } else {
-                                std::string nome = parserFich.getArgs()[0];
-
-                                auto iter = copias.find(nome);
-                                if (iter == copias.end()) {
-                                    std::cout << "ERRO: esse save nao existe\n";
-                                } else {
-                                    delete iter->second;
-                                    copias.erase(iter);
-                                    std::cout << "Gravacao " << nome << " apagada\n";
-                                }
-                            }
-                        } else if (listaComandos.count(cmdFich)) {
-                            listaComandos[cmdFich]->executa(meuJardim, parserFich.getArgs());
-                        } else {
-                            std::cout << "Comando desconhecido no ficheiro: " << cmdFich << "\n";
-                        }
-                    }
-                    ficheiro.close();
-                }
-            }
-        } else if (meuJardim == nullptr && !nomeCmd.empty()) {
-            std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
-        } else if (listaComandos.count(nomeCmd)) {
-            listaComandos[nomeCmd]->executa(meuJardim, parser.getArgs());
-        } else if (!nomeCmd.empty()) {
-            std::cout << "[ERRO] Comando '" << nomeCmd << "' invalido ou desconhecido.\n";
         }
     }
 }
