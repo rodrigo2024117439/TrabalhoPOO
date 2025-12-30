@@ -1,0 +1,49 @@
+jardim 2 2
+entra aa
+c
+e
+planta aa r
+planta ab e
+planta aa c
+avanca 1
+grava backup_estavel
+planta ba c
+planta bb x
+avanca 1
+lsolo aa 1
+recupera backup_estavel
+lsolo ba 0
+avanca 100
+jardim 10 10
+sai
+entra bb
+c
+e
+b
+b
+b
+d
+d
+d
+b
+b
+b
+b
+b
+planta aa r
+planta ab r
+planta ac r
+avanca 1
+lsolo aa 5
+grava t1
+apaga t1
+recupera t1
+larea
+iferr
+pega 0
+pega 1
+pega 2
+pega 3
+larga 0
+avanca 1
+fim

@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\comandos\\comandolsolo.cpp",
+        "Source": "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\comandos\\comandos_jardineiro\\comandoentra.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\comandos\\comandolsolo.h",
+            "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\comandos\\comandos_jardineiro\\comandoentra.h",
             "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\comandos\\comando.h",
             "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\jardim.h",
             "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\jardineiro.h",
@@ -134,9 +134,7 @@
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\__msvc_xlocinfo_types.hpp",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\clocale",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\locale.h",
-            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\ostream",
-            "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\plantas\\planta.h",
-            "c:\\users\\diogo\\documents\\uni\\poo\\trabalhopoo-2\\src\\solo.h"
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\ostream"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

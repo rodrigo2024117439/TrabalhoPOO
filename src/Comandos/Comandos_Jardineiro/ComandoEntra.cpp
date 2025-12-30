@@ -43,6 +43,6 @@ if (args.size() != 1) {
     jardineiro->setNoJardim(true);
     jardineiro->entrarSair();
 
-    std::cout <<"Jarineiro entrou na celula " << argumento << "\n";
+    std::cout <<"Jardineiro entrou na celula " << argumento << "\n";
     jardim->printJardim();
 }

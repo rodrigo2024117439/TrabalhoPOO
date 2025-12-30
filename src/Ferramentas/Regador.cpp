@@ -10,12 +10,13 @@ Regador::Regador() : Ferramenta('g', "Regador"),
                      aguaRestante(Settings::Regador::capacidade) {
 }
 
-// Meta 2
 bool Regador::avancaInstante(Jardineiro* jardineiro, Solo* solo) {
-    solo->setAgua(solo->getAgua() + Settings::Regador::dose);
-    this->aguaRestante -= Settings::Regador::dose;
+    if (solo != nullptr && this->aguaRestante > 0) {
+        solo->setAgua(solo->getAgua() + Settings::Regador::dose);
+        this->aguaRestante -= Settings::Regador::dose;
 
-    std::cout << "Regador usado! Agua restante: " << this->aguaRestante << "\n";
+        std::cout << "Regador usado. Agua restante: " << this->aguaRestante << "\n";
+    }
 
     if (this->aguaRestante <= 0) {
         std::cout << "O regador acabou e foi atirado para longe!\n";

@@ -22,7 +22,6 @@
 #include "Comandos/ComandoCompra.h"
 #include "Comandos/ComandoLSolo.h"
 
-
 Interface::Interface() : meuJardim(nullptr) {
     listaComandos["entra"] = new ComandoEntra();
     listaComandos["sai"] = new ComandoSai();
@@ -45,12 +44,14 @@ Interface::Interface() : meuJardim(nullptr) {
 
 Interface::~Interface() {
     delete meuJardim;
-
     for (auto const &[nome, comando]: listaComandos) {
         delete comando;
     }
+    for (auto const& [nome, jardim] : copias) {
+        delete jardim;
+    }
+    copias.clear();
 }
-
 
 bool Interface::processarComando(const std::string &linha) {
     if (linha.empty()) {
@@ -59,9 +60,11 @@ bool Interface::processarComando(const std::string &linha) {
 
     Parser parser(linha);
     std::string nomeCmd = parser.getNome();
+    
     if (nomeCmd == "fim") {
         return false;
     }
+
     if (nomeCmd == "jardim") {
         if (meuJardim != nullptr) {
             std::cout << "ERRO- O jardim ja foi criado! Nao pode ser recriado.\n";
@@ -72,7 +75,6 @@ bool Interface::processarComando(const std::string &linha) {
                 std::vector<std::string> args = parser.getArgs();
                 int lin = std::stoi(args[0]);
                 int col = std::stoi(args[1]);
-
 
                 if (lin < 1 || lin > 26 || col < 1 || col > 26) {
                     std::cout << "ERRO- O jardim deve ter no maximo 26x26 e no minimo 1x1.\n";
@@ -88,22 +90,17 @@ bool Interface::processarComando(const std::string &linha) {
         return true;
     }
 
-
     if (nomeCmd == "executa") {
         if (parser.getNumArgs() != 1) {
             std::cout << "Erro: Uso -> executa <nome_ficheiro>\n";
         } else {
             std::string nomeFich = parser.getArgs()[0];
             std::ifstream ficheiro(nomeFich);
-
             if (!ficheiro.is_open()) {
                 std::cout << "Erro: Nao foi possivel abrir o ficheiro " << nomeFich << "\n";
             } else {
                 std::string linhaFicheiro;
                 while (std::getline(ficheiro, linhaFicheiro)) {
-                    std::cout << ">> " << linhaFicheiro << "\n";
-
-
                     if (!processarComando(linhaFicheiro)) {
                         ficheiro.close();
                         return false;
@@ -115,14 +112,17 @@ bool Interface::processarComando(const std::string &linha) {
         return true;
     }
 
+    if (meuJardim == nullptr) {
+        std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
+        return true;
+    }
+
     if (nomeCmd == "grava") {
-        if (meuJardim == nullptr) {
-            std::cout << "ERRO- Crie um jardim primeiro.\n";
-        } else if (parser.getNumArgs() != 1) {
+        if (parser.getNumArgs() != 1) {
             std::cout << "Erro: Uso -> grava <nome>\n";
         } else {
             std::string nome = parser.getArgs()[0];
-            if (copias.count(nome)) delete copias[nome]; // Evita memory leaks
+            if (copias.count(nome)) delete copias[nome];
             copias[nome] = new Jardim(*meuJardim);
             std::cout << "Jardim gravado com o nome '" << nome << "'.\n";
         }
@@ -130,9 +130,7 @@ bool Interface::processarComando(const std::string &linha) {
     }
 
     if (nomeCmd == "recupera") {
-        if (meuJardim == nullptr) {
-            std::cout << "ERRO- Crie um jardim primeiro.\n";
-        } else if (parser.getNumArgs() != 1) {
+        if (parser.getNumArgs() != 1) {
             std::cout << "Erro: Uso -> recupera <nome>\n";
         } else {
             std::string nome = parser.getArgs()[0];
@@ -140,7 +138,7 @@ bool Interface::processarComando(const std::string &linha) {
                 std::cout << "Erro: Nao existe gravacao com esse nome.\n";
             } else {
                 delete meuJardim;
-                meuJardim = new Jardim(*copias[nome]); // criar cópia nova
+                meuJardim = new Jardim(*copias[nome]);
                 std::cout << "Jardim recuperado para o estado de '" << nome << "'.\n";
                 meuJardim->printJardim();
             }
@@ -165,11 +163,6 @@ bool Interface::processarComando(const std::string &linha) {
         return true;
     }
 
-    if (meuJardim == nullptr) {
-        std::cout << "ERRO- Crie um jardim primeiro com o comando 'jardim <lin> <col>'.\n";
-        return true;
-    }
-
     if (listaComandos.count(nomeCmd)) {
         listaComandos[nomeCmd]->executa(meuJardim, parser.getArgs());
     } else {
@@ -184,12 +177,9 @@ void Interface::iniciar() {
     std::cout << "----> Simulador de Jardim <----\n";
     std::cout << "Primeiro comando a ser utilizado: 'jardim <linhas> <colunas>'\n";
     std::cout << "Escreva 'fim' para sair.\n";
-
     while (true) {
         std::cout << "> ";
-        std::getline(std::cin, linha);
-
-        if (!processarComando(linha)) {
+        if (!std::getline(std::cin, linha) || !processarComando(linha)) {
             std::cout << "Programa terminado.\n";
             break;
         }

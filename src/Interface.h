@@ -14,6 +14,7 @@ class Interface {
     Jardim* meuJardim;
     std::map<std::string, Comandos*> listaComandos;
     std::map<std::string, Jardim*> copias;
+    std::map<std::string, Jardim*> gravacoes;
 
     bool processarComando(const std::string& linha);
 
