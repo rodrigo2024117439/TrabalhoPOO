@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Trabalho_Pratico.dir\\Debug\\Planta.obj",
+            "outputs": [
+                "C:\\Users\\diogo\\Documents\\uni\\poo\\TrabalhoPOO-2\\build\\Trabalho_Pratico.dir\\Debug\\vc143.pdb",
+                "Trabalho_Pratico.dir\\Debug\\"
+            ],
+            "requires": []
+        }
+    ]
+}

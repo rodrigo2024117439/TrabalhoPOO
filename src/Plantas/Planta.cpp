@@ -3,6 +3,6 @@
 //
 
 #include "Planta.h"
-Planta::Planta(char s, std::string esp, int h, int a, int n)
-    :simbolo(s), especie(esp), saude(h), agua(a),nutrientes(n), processada(false) {
+Planta::Planta(char s, std::string esp, int h, int a, int n, Beleza b)
+    :simbolo(s), especie(esp), saude(h), agua(a),nutrientes(n), beleza(b), processada(false) {
 }

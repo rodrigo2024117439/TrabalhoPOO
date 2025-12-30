@@ -6,7 +6,7 @@
 #include <vector>
 
 
-Cacto::Cacto() : Planta('c', "Cacto", 1, 0, 0), instantesComMuitaAgua(0), instantesSemNutrientes(0) {
+Cacto::Cacto() : Planta('c', "Cacto", 1, 0, 0, Beleza::NEUTRA), instantesComMuitaAgua(0), instantesSemNutrientes(0) {
 }
 
 void Cacto::morre(Solo* solo) {

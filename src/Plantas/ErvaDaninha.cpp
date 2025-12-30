@@ -1,3 +1,4 @@
+#include <iostream>
 #include "ErvaDaninha.h"
 #include "../Solo.h"
 #include "../Settings.h"
@@ -6,7 +7,7 @@
 #include <cstdlib>
 
 ErvaDaninha::ErvaDaninha() 
-    : Planta('e', "Erva Daninha", 10, Settings::ErvaDaninha::inicial_agua, Settings::ErvaDaninha::inicial_nutrientes) {
+    : Planta('e', "Erva Daninha", 10, Settings::ErvaDaninha::inicial_agua, Settings::ErvaDaninha::inicial_nutrientes, Beleza::FEIA) {
     instDeVida = 0;
     instParaMultiplicar = 0;
 }
@@ -50,9 +51,12 @@ void ErvaDaninha::avancaInstante(Solo* solo, Jardim* jardim, int l, int c) {
             int idx = rand() % vizinhos.size();
             Solo* soloAlvo = jardim->getSolo(vizinhos[idx].first, vizinhos[idx].second);
             
-            ErvaDaninha* novaErva = new ErvaDaninha();
-
-            soloAlvo->setPlanta(novaErva);
+            if (soloAlvo->getPlanta() != nullptr) {
+                std::cout << ">>> Erva Daninha matou a planta em " 
+                          << static_cast<char>('A' + vizinhos[idx].first) 
+                          << static_cast<char>('A' + vizinhos[idx].second) << "!\n";
+            }
+            soloAlvo->setPlanta(new ErvaDaninha());
             
             instParaMultiplicar = 0;
         }

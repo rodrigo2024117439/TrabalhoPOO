@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <cstdlib>
 
-Roseira:: Roseira(): Planta('r', "Roseira",10, Settings::Roseira::inicial_agua,Settings::Roseira::inicial_nutrientes) {
+Roseira:: Roseira(): Planta('r', "Roseira",10, Settings::Roseira::inicial_agua,Settings::Roseira::inicial_nutrientes, Beleza::BONITA) {
 
 }
 

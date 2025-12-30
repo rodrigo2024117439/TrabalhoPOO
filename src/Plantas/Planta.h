@@ -8,6 +8,7 @@
 
 class Solo;
 class Jardim;
+enum class Beleza { FEIA, BONITA, NEUTRA };
 
 class Planta {
 protected:
@@ -17,9 +18,10 @@ protected:
     char simbolo;
     std::string especie;
     bool processada;
+    Beleza beleza;
 
     public:
-    Planta(char s, std::string esp, int h, int a, int n);
+    Planta(char s, std::string esp, int h, int a, int n, Beleza b);
 
     virtual ~Planta() = default;
     virtual void avancaInstante(Solo* solo, Jardim* jardim, int l, int c) = 0;
@@ -32,5 +34,6 @@ protected:
     int getSaude() const { return saude; }
     int getAgua() const { return agua; }
     int getNutrientes() const { return nutrientes; }
+    Beleza getBeleza() const { return beleza; }
 };
 #endif //TRABALHO_PRATICO_PLANTA_H

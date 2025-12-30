@@ -5,10 +5,10 @@
 #include <algorithm>
 
 PlantaExotica::PlantaExotica() 
-    : Planta('x', "Planta Bomba", 50, 50, 50) { 
+    : Planta('x', "Planta Bomba", 50, 50, 50, Beleza::NEUTRA) { 
 }
 
-void PlantaExotica::avancaInstante(Solo *solo, Jardim* jardim, int l, int c) {
+void PlantaExotica::avancaInstante(Solo *solo, Jardim* jardim, int l, int c){
     
     this->agua -= 2;
     this->nutrientes -= 2;

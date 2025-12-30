@@ -10,61 +10,36 @@
 #include "../Ferramentas/Ferramenta.h"
 
 void ComandoLSolo::executa(Jardim *jardim, const std::vector<std::string> &args) {
-    if (args.empty() || args.size() > 2) {
-        std::cout << "Erro: Este comando aceita no maximo 2 argumentos (posicao e raio)";
+    if (args.size() < 1) {
+        std::cout << "ERRO: Uso -> lsolo <posicao> [raio]\n";
         return;
     }
 
     std::string pos = args[0];
-
-    if (pos.length() != 2 || !isalpha(pos[0]) || !isalpha(pos[1])) {
-        std::cout << "Erro: Posicao invalida. Use duas letras (ex: ab).\n";
-        return;
-    }
-
-    int centroLin = tolower(pos[0]) - 'a';
-    int centroCol = tolower(pos[1]) - 'a';
+    int l = tolower(pos[0]) - 'a';
+    int c = tolower(pos[1]) - 'a';
     int raio = 0;
 
-
-    if (args.size() == 2) {
-        try {
-            raio = std::stoi(args[1]);
-            if (raio < 0)
-                throw std::invalid_argument("negativo");
-        } catch (...) {
-            std::cout << "Erro: O raio deve ser um numero inteiro positivo.\n";
-            return;
-        }
+    if (args.size() >= 2) {
+        try { raio = std::stoi(args[1]); } catch (...) { raio = 0; }
     }
 
-    bool encontrado = false;
-    std::cout << "--->Detalhes do solo:\n";
-    for (int i = centroLin - raio; i <= centroLin + raio; i++) {
-        for (int j = centroCol - raio; j <= centroCol + raio; j++) {
-            if (i >= 0 && i < jardim->getLinhas() && j >= 0 && j < jardim->getColunas()) {
-                Solo *solo = jardim->getSolo(i, j);
-                encontrado = true;
-
-                char linhaChar = 'a' + i;
-                char colunaChar = 'a' + j;
-
-                std::cout << "[" << linhaChar << colunaChar << "] ";
-                std::cout << "Agua: " << solo->getAgua() << ", Nutr: " << solo->getNutrientes();
-
-                if (solo->getPlanta()) {
-                    std::cout << " | Planta: " << solo->getPlanta()->getEspecie();
-                    std::cout << " (Saude: " << solo->getPlanta()->getSaude() << ")";
+    for (int i = l - raio; i <= l + raio; ++i) {
+        for (int j = c - raio; j <= c + raio; ++j) {
+            Solo* s = jardim->getSolo(i, j); // O getSolo já valida limites
+            if (s != nullptr) {
+                std::cout << "--- Posicao [" << static_cast<char>('A'+i) << static_cast<char>('A'+j) << "] ---\n";
+                std::cout << "Solo: Agua=" << s->getAgua() << ", Nutrientes=" << s->getNutrientes() << "\n";
+                
+                if (s->getPlanta()) {
+                    std::cout << "  Planta: " << s->getPlanta()->getEspecie() 
+                              << " (Saude: " << s->getPlanta()->getSaude() << ")\n";
                 }
-                if (solo->getFerramenta()) {
-                    std::cout << " | Ferr: " << solo->getFerramenta()->getTipo();
+                if (s->getFerramenta()) {
+                    std::cout << "  Ferramenta no chao: " << s->getFerramenta()->getTipo() 
+                              << " (S/N: " << s->getFerramenta()->getNumSerie() << ")\n";
                 }
-                std::cout << "\n";
             }
         }
-    }
-
-    if (!encontrado) {
-        std::cout << "local fora do jardim";
     }
 }
